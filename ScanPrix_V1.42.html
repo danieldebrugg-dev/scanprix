@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173b35">
+<title>ScanPrix V1.42 — Caméra Android renforcée</title>
+<style>
+:root{--bg:#f3f6f5;--panel:#fff;--ink:#172522;--muted:#667571;--line:#dce5e1;--green:#176b52;--green2:#e7f3ee;--red:#b43c36;--amber:#946200;--shadow:0 8px 24px #163b3010}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#fff;font-weight:650}.button-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#fff;font-weight:650;flex:1}.button-link:focus-visible{outline:3px solid var(--accent);outline-offset:2px}button.secondary{background:#edf2ef;color:#20332d;border:1px solid var(--line)}button.danger{background:#fff0ef;color:var(--red);border:1px solid #f1cbc8}button:disabled{opacity:.45;cursor:not-allowed}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cbd8d2;border-radius:9px;background:#fff;color:var(--ink);min-width:0}label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin:0 0 5px}.app{max-width:1280px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:13px;background:var(--green);color:white;display:grid;place-items:center;font-size:23px}.brand h1{font-size:22px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.version-tag{display:inline-block;margin-left:7px;padding:2px 6px;border:1px solid var(--line);border-radius:6px;font-size:10px;font-weight:700;color:var(--green);vertical-align:1px}.status{font-size:12px;color:var(--muted);text-align:right}.layout{display:grid;grid-template-columns:220px 1fr;gap:18px}.nav,.panel,.stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.nav{padding:10px;height:max-content;position:sticky;top:12px}.nav button{width:100%;text-align:left;background:transparent;color:#42534d;margin:2px 0}.nav button.active{background:var(--green2);color:var(--green)}.nav small{display:block;padding:12px 10px 4px;color:#89958f;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.main{min-width:0}.view{display:none}.view.active{display:block}.pagehead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:2px 0 16px}.pagehead h2{margin:0;font-size:23px}.pagehead p{margin:4px 0 0;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.stat{padding:15px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:25px;margin-top:3px}.panel{padding:17px;margin-bottom:15px}.panel h3{margin:0 0 13px;font-size:16px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field{margin-bottom:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.toolbar input{flex:1;min-width:190px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);font-size:13px}th{background:#f7faf8;color:#65736e;font-size:11px;text-transform:uppercase;letter-spacing:.04em}tr:last-child td{border-bottom:0}.muted{color:var(--muted)}.pill{display:inline-block;padding:3px 8px;border-radius:99px;background:var(--green2);color:var(--green);font-size:11px;font-weight:700}.empty{text-align:center;color:var(--muted);padding:26px}.scannerbox{background:#101b18;border-radius:12px;overflow:hidden;position:relative;min-height:210px;display:grid;place-items:center;color:#dbe9e3}.scannerbox video{width:100%;max-height:330px;object-fit:cover;display:none}.scannerhint{padding:24px;text-align:center}.scannerhint strong{display:block;margin:8px}.result{background:#f7faf8;border:1px solid var(--line);padding:13px;border-radius:10px;margin-top:12px}.notice{padding:10px 12px;border-radius:9px;background:#eef5f1;color:#35574a;font-size:13px;margin:10px 0}.notice.warn{background:#fff6df;color:#765300}.notice.error{background:#fff0ef;color:#a3312c}.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}.footer{font-size:11px;color:#89958f;text-align:center;padding:18px}.hide{display:none!important}.price{font-weight:800;color:var(--green)}.testrow{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}.testrow>span:first-child{min-width:0;overflow-wrap:anywhere}.testrow>strong{white-space:nowrap}.scannerbox{min-height:190px;position:relative;overflow:hidden;background:#101820;border-radius:14px}.scannerbox video{max-height:420px;width:100%;aspect-ratio:4/3;object-fit:cover;background:#101820}.scannerhint{color:#fff}.scannerbox:has(video[style*="display: block"]) .scannerhint{display:none}.scan-mobile-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}.scan-mobile-tools button{min-height:44px}.scan-mobile-tools label{display:flex;align-items:center;gap:8px;flex:1;min-width:160px;font-size:13px}.scan-mobile-tools input{width:100%;min-width:80px}.scan-frame-guide{position:absolute;left:8%;right:8%;top:34%;height:30%;border:2px solid #55e39a;border-radius:12px;pointer-events:none;box-shadow:0 0 0 999px #0002}.scan-frame-guide:after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:#55e39a;opacity:.8}.field input:focus,.field select:focus,.field textarea:focus,.toolbar input:focus{outline:3px solid #176b5230;border-color:var(--green)}button:focus-visible{outline:3px solid #176b5260;outline-offset:2px}.notice{overflow-wrap:anywhere}.scan-actions{display:flex;gap:8px;flex-wrap:wrap}.scan-actions button{flex:1;min-width:150px}@media(max-width:560px){.scannerbox{min-height:240px}.scannerbox video{max-height:none;min-height:240px;aspect-ratio:3/4;object-fit:cover}.scan-actions button{min-width:0;min-height:48px;font-size:14px}.scan-mobile-tools{gap:8px}.scan-mobile-tools button{flex:1}.actions button{flex:1}.pagehead .actions{width:100%}.pagehead .actions button{flex:1}.scannerbox{min-height:160px}.scannerbox video{max-height:220px}.grid2>.field{min-width:0}}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.nav{position:static;display:flex;overflow:auto;gap:4px}.nav small{display:none}.nav button{white-space:nowrap;width:auto}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.app{padding:10px}.top{align-items:flex-start}.status{max-width:110px}.brand h1{font-size:19px}.pagehead{flex-direction:column}.grid2,.grid3,.split{grid-template-columns:1fr}.panel{padding:13px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.nav{border-radius:11px}.nav button{padding:9px 11px;font-size:13px}}
+.product-modal{position:fixed!important;inset:3vh 3vw!important;z-index:1000!important;overflow:auto!important;max-height:94vh!important;margin:0!important;background:var(--panel)!important;box-shadow:0 0 0 100vmax rgba(10,25,20,.58),0 18px 60px #0003!important;border:1px solid var(--line)!important}
+body.product-modal-open{overflow:hidden}
+.product-detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin-top:10px}
+.product-detail-item{padding:9px 10px;background:#fff;border:1px solid var(--line);border-radius:8px;min-width:0}
+.product-detail-item span{display:block;color:var(--muted);font-size:12px}
+.product-detail-item strong{display:block;overflow-wrap:anywhere;font-weight:650}
+.product-detail-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.product-detail-links a{display:inline-flex;align-items:center;padding:9px 12px;border-radius:8px;background:var(--green);color:#fff;text-decoration:none;font-weight:650}
+.product-detail-section{margin-top:14px}
+.product-detail-section h4{margin:0 0 7px}
+/* Optimisations mobiles globales */
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+body{overflow-x:hidden}
+input,select,textarea{max-width:100%;min-width:0}
+.tablewrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+button,.button-link{touch-action:manipulation;min-height:42px}
+.product-modal{inset:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))!important;max-height:calc(100dvh - 16px)!important;overscroll-behavior:contain}
+#catalog-category-modal{padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))!important}
+#catalog-category-modal>div{width:min(100%,560px);max-height:calc(100dvh - 24px);overflow:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:700px){
+ .layout{display:block}
+ .nav{max-width:100%;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:thin;padding-bottom:4px}
+ .nav button{flex:0 0 auto;min-height:44px}
+ .app{width:100%;max-width:100%;padding:8px}
+ .top,.pagehead{gap:10px}
+ .pagehead .actions,.actions{display:flex;flex-wrap:wrap}
+ .actions>*{flex:1 1 140px;min-width:0}
+ .grid2,.grid3,.split{grid-template-columns:minmax(0,1fr)}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .panel{min-width:0;overflow-wrap:anywhere}
+ .field input,.field select,.field textarea{width:100%;font-size:16px}
+ .tablewrap table{min-width:720px}
+ #catalog-category-modal .actions{display:grid;grid-template-columns:1fr 1fr}
+ #catalog-category-modal .actions button{width:100%;min-width:0}
+ .product-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:380px){
+ .stats{grid-template-columns:1fr 1fr}
+ .product-detail-grid{grid-template-columns:1fr}
+ .actions>*{flex-basis:100%}
+ .brand h1{font-size:17px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="brand"><div class="logo">▦</div><div><h1>ScanPrix</h1><p>Produits · Magasins · Comparaison des prix <span class="version-tag" id="app-version">V1.42</span></p></div></div>
+ <div class="status" id="connection">Initialisation de la base locale…</div>
+</header>
+<div class="layout">
+ <nav class="nav" aria-label="Navigation">
+  <small>Application</small>
+  <button class="active" data-view="dashboard">▦ Tableau de bord</button>
+  <button data-view="scanner">▣ Scanner</button>
+  <button data-view="catalog-import">▧ Importer un catalogue</button>
+  <button data-view="products">▤ Produits</button>
+  <button data-view="stores">⌖ Magasins</button>
+  <button data-view="prices">€ Prix & comparaison</button>
+  <small>Maintenance</small>
+  <button data-view="backup">⇧ Sauvegarde</button>
+  <button data-view="diagnostics">✓ Diagnostic & tests</button>
+ </nav>
+ <main class="main">
+  <section class="view active" id="view-dashboard">
+   <div class="pagehead"><div><h2>Tableau de bord</h2><p>Vue générale de votre bibliothèque locale.</p></div><button data-goto="scanner">＋ Nouveau scan</button></div>
+   <div class="stats">
+    <div class="stat"><span>Produits</span><strong id="stat-products">0</strong></div>
+    <div class="stat"><span>Magasins</span><strong id="stat-stores">0</strong></div>
+    <div class="stat"><span>Relevés de prix</span><strong id="stat-prices">0</strong></div>
+    <div class="stat"><span>Scans enregistrés</span><strong id="stat-scans">0</strong></div>
+   </div>
+   <div class="panel" id="dashboard-product-search-panel">
+    <p class="muted" style="margin:0 0 10px">Une fiche par produit, plusieurs codes possibles.</p>
+    <div class="toolbar" style="margin:0">
+     <input id="dashboard-product-search" type="search" autocomplete="off" placeholder="Rechercher un produit, une marque ou un code-barres…">
+     <button type="button" id="dashboard-product-search-button">Rechercher</button>
+     <span class="pill" id="dashboard-product-count" aria-live="polite">0 produit(s)</span>
+    </div>
+    <div id="dashboard-product-results" aria-live="polite"></div>
+   </div>
+   <div class="panel"><h3>Derniers relevés de prix</h3><div id="recent-prices"></div></div>
+   <div class="panel"><h3>Derniers produits consultés</h3><div id="recent-scans"></div></div>
+  </section>
+
+  <section class="view" id="view-scanner">
+   <div class="pagehead"><div><h2>Scanner un produit</h2><p>La bibliothèque locale est consultée avant toute recherche Internet.</p></div></div>
+   <div class="panel">
+    <div class="scannerbox"><video id="video" playsinline muted></video><div class="scannerhint" id="scanner-hint"><div style="font-size:34px">▦</div><strong>Prêt à scanner</strong><span>Autorisez la caméra, ou saisissez le code-barres manuellement.</span></div></div>
+    <div class="actions scan-actions" style="margin-top:12px"><button id="start-camera" type="button">Activer la caméra</button><button class="secondary" id="stop-camera" type="button" disabled>Arrêter</button></div>\n    <div class="scan-mobile-tools" id="scan-mobile-tools"><button class="secondary" id="torch-toggle" type="button" hidden aria-pressed="false">Activer la lampe</button><label id="zoom-control" hidden>Zoom <input id="camera-zoom" type="range" min="1" max="3" step="0.1" value="1"></label><span class="muted" id="camera-capability-note" aria-live="polite"></span></div>
+    <div class="grid2" style="margin-top:14px">
+     <div class="field"><label for="barcode-input">Code-barres</label><input id="barcode-input" inputmode="numeric" autocomplete="off" placeholder="Ex. 3270190123456"></div>
+     <div class="field" style="align-self:end"><button id="lookup-barcode" style="width:100%">Rechercher le produit</button></div>
+    </div>
+    <div class="panel" style="margin:8px 0 12px;padding:13px;background:#f7faf8">
+     <h3 style="margin-bottom:8px">Lecture du presse-papiers</h3>
+     <p class="muted" style="font-size:12px;margin:0 0 10px">Copiez un texte, une fiche produit ou une adresse contenant un code-barres, puis lancez l'extraction. ScanPrix détecte les codes EAN/UPC valides et démarre la recherche.</p>
+     <div class="actions"><button id="read-clipboard" type="button">Lire le presse-papiers (texte ou image)</button></div>
+     <div id="clipboard-image-zone" tabindex="0" role="group" aria-label="Zone de collage d’image du code-barres" style="margin-top:10px;padding:16px;border:2px dashed #9aafa5;border-radius:10px;background:#fff;text-align:center;outline-offset:3px">
+      <strong>Coller une image du code-barres ici</strong>
+      <div class="muted" style="font-size:12px;margin:4px 0 10px">Cliquez dans cette zone puis faites Ctrl+V (PC) ou utilisez le bouton de lecture du presse-papiers (téléphone compatible).</div>
+      <img id="clipboard-image-preview" class="hide" alt="Aperçu de l’image collée" style="display:block;max-width:100%;max-height:220px;margin:8px auto;border-radius:8px">
+      <label for="clipboard-image-file" style="display:inline-block;margin-top:8px;padding:9px 12px;border:1px solid #cbd8d2;border-radius:8px;background:#edf2ef;color:#20332d;cursor:pointer">Choisir une image</label>
+      <input id="clipboard-image-file" type="file" accept="image/*" class="hide">
+     </div>
+     <div class="field" style="margin:10px 0 0"><label for="clipboard-text">Ou coller le texte ou le lien contenant le code-barres</label><textarea id="clipboard-text" rows="3" placeholder="Collez ici le texte ou le lien contenant le code-barres…"></textarea></div>
+     <div class="actions" style="margin-top:8px"><button id="extract-clipboard" type="button" class="secondary">Extraire le code et rechercher</button></div>
+     <div id="clipboard-status" aria-live="polite"></div>
+    </div>
+    <div class="muted" style="font-size:12px">La caméra et la lecture directe du presse-papiers nécessitent un navigateur compatible et une page HTTPS. Si l'accès au presse-papiers est refusé, utilisez le collage manuel ci-dessus. Saisie manuelle toujours disponible.</div>
+    <div id="local-file-warning" class="notice warn hide">Application ouverte depuis un fichier local : la recherche Internet automatique est bloquée par les règles de sécurité du navigateur. Ouvrez cette application depuis une adresse HTTPS pour activer la recherche distante.</div>
+    <div id="scan-result"></div>
+   </div>
+  </section>
+
+  <section class="view" id="view-catalog-import">
+   <div class="pagehead"><div><h2>Importer un catalogue Internet</h2><p>Importer une liste copiée depuis LAPUB.RE ou un autre site de promotions.</p></div></div>
+   <div class="panel">
+    <h3>1. Coller le contenu de la page</h3>
+    <p class="muted" style="font-size:13px">Cliquez sur « Récupérer et analyser LAPUB.RE », cochez un ou plusieurs rayons, puis cliquez sur « Relecture ». ScanPrix récupère les pages sélectionnées et regroupe les offres dans un aperçu unique.</p>
+    <div class="grid2">
+     <div class="field"><label for="catalog-source">Nom de la source</label><input id="catalog-source" value="LAPUB.RE" maxlength="100"></div>
+     <div class="field"><label for="catalog-category">Rayon / catégorie (facultatif)</label><input id="catalog-category" placeholder="Ex. Charcuterie & Traiteur" maxlength="100"></div>
+     <div class="field"><label for="catalog-town">Ville / localité (facultatif)</label><input id="catalog-town" placeholder="Ex. Cilaos" maxlength="100"></div>
+     <div class="field"><label for="catalog-region">Région / île (facultatif)</label><input id="catalog-region" placeholder="Ex. La Réunion" maxlength="100"></div>
+     <div class="field"><label for="catalog-currency">Devise si elle n’est pas indiquée dans le texte</label><select id="catalog-currency"><option value="EUR" selected>Euro (EUR)</option><option value="MUR">Roupie mauricienne (MUR)</option></select></div>
+    </div>
+    <div class="field"><label for="catalog-text">Texte copié du catalogue</label><textarea id="catalog-text" rows="12" placeholder="Le texte de la page copiée sera placé ici automatiquement…"></textarea></div>
+    <div class="actions"><button id="catalog-auto-read" type="button">Récupérer et analyser LAPUB.RE</button><a id="catalog-open-page" class="button-link" href="https://lapub.re/cilaos/promos/charcuterie-traiteur" target="_blank" rel="noopener noreferrer">Ouvrir LAPUB.RE</a><button id="catalog-parse" type="button">Analyser le catalogue</button><button id="catalog-clear" type="button" class="secondary">Effacer</button></div>
+    <div id="catalog-status" aria-live="polite"></div>
+   </div>
+   <div id="catalog-category-modal" class="hide" role="dialog" aria-modal="true" aria-labelledby="catalog-category-title" style="position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.58);padding:18px;overflow:auto">
+    <div style="max-width:560px;margin:5vh auto;background:var(--panel,#fff);color:var(--text,#222);border-radius:14px;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.28)">
+     <h3 id="catalog-category-title">Choisir les catalogues à relire</h3>
+     <p class="muted">Cochez un ou plusieurs rayons. ScanPrix récupérera chaque page et regroupera les offres avant l'analyse.</p>
+     <div id="catalog-category-list" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0">
+      <label><input type="checkbox" class="catalog-category-check" value="charcuterie-traiteur" data-label="Charcuterie & Traiteur" checked> charcuterie-traiteur</label>
+      <label><input type="checkbox" class="catalog-category-check" value="entretien-maison" data-label="Entretien maison"> entretien-maison</label>
+      <label><input type="checkbox" class="catalog-category-check" value="decoration" data-label="Décoration"> decoration</label>
+      <label><input type="checkbox" class="catalog-category-check" value="produits-laitiers" data-label="Produits laitiers"> produits-laitiers</label>
+      <label><input type="checkbox" class="catalog-category-check" value="sauces-condiments" data-label="Sauces & condiments"> sauces-condiments</label>
+      <label><input type="checkbox" class="catalog-category-check" value="jouets-educatifs" data-label="Jouets éducatifs"> jouets-educatifs</label>
+      <label><input type="checkbox" class="catalog-category-check" value="riz-pates-feculents" data-label="Riz, pâtes & féculents"> riz-pates-feculents</label>
+      <label><input type="checkbox" class="catalog-category-check" value="chocolat-confiseries" data-label="Chocolat & confiseries"> chocolat-confiseries</label>
+      <label><input type="checkbox" class="catalog-category-check" value="sirops-boissons-preparees" data-label="Sirops & boissons préparées"> sirops-boissons-preparees</label>
+      <label><input type="checkbox" class="catalog-category-check" value="viandes-volailles" data-label="Viandes & volailles"> viandes-volailles</label>
+     </div>
+     <div class="field" style="margin:12px 0">
+      <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="catalog-custom-enabled"> Ajouter une catégorie personnalisée</label>
+      <input id="catalog-custom-category" type="text" maxlength="100" placeholder="Élément à rechercher, ex. fruits-legumes" autocomplete="off" style="margin-top:8px" disabled>
+      <small class="muted">Recherche sur https://lapub.re/cilaos/promos/ + l’élément saisi.</small>
+     </div>
+     <div class="actions" style="justify-content:space-between;flex-wrap:wrap">
+      <button id="catalog-category-none" type="button" class="secondary">Tout décocher</button>
+      <span style="flex:1"></span>
+      <button id="catalog-category-cancel" type="button" class="secondary">Annuler</button>
+      <button id="catalog-category-run" type="button">Relecture</button>
+     </div>
+     <div id="catalog-category-progress" aria-live="polite" class="muted" style="margin-top:12px"></div>
+    </div>
+   </div>
+   <div class="panel hide" id="catalog-preview-panel">
+    <div class="pagehead"><div><h3>2. Vérifier et sélectionner les produits</h3><p id="catalog-summary" class="muted"></p></div><div class="actions"><button type="button" class="secondary" id="catalog-select-all">Tout sélectionner</button><button type="button" class="secondary" id="catalog-select-none">Tout désélectionner</button></div></div>
+    <div class="notice warn">Les produits sans prix restent importables. Les données absentes ne sont pas inventées. Les prix de catalogue sont conservés comme offres en EUR ou dans la devise détectée, sans créer de relevé de prix local en Rs.</div>
+    <div class="tablewrap"><table style="min-width:900px"><thead><tr><th>Importer</th><th>Produit</th><th>Marque</th><th>Enseigne / magasin</th><th>Prix</th><th>Fin offre</th></tr></thead><tbody id="catalog-preview-body"></tbody></table></div>
+    <div class="actions" style="margin-top:14px"><button id="catalog-import-selected" type="button">Importer les produits sélectionnés</button><span id="catalog-import-count" class="pill">0 sélectionné</span></div>
+    <div id="catalog-import-result" aria-live="polite"></div>
+   </div>
+  </section>
+
+  <section class="view" id="view-products">
+   <div class="pagehead"><div><h2>Bibliothèque des produits</h2><p>Une fiche par produit, plusieurs codes possibles.</p></div><button id="new-product">＋ Ajouter</button></div>
+   <div class="toolbar"><input id="product-search" placeholder="Rechercher par nom, marque ou code-barres…"><span class="pill" id="product-count">0 produit</span></div>
+    <div class="tablewrap"><table><thead><tr><th>Code-barres</th><th>Produit</th><th>Marque</th><th>Conditionnement</th><th>Offre source</th><th>Actions</th></tr></thead><tbody id="products-table"></tbody></table></div>
+   </div>
+   <div class="panel hide" id="product-form-panel">
+    <h3 id="product-form-title">Ajouter un produit</h3>
+    <div id="dashboard-product-full-details" class="panel" style="background:#f8faf9;margin:12px 0;display:none"></div>
+    <form id="product-form">
+     <input type="hidden" id="p-id">
+     <div class="field"><label>Photo du produit</label>
+      <div class="actions"><button type="button" class="secondary" id="p-photo-button">＋ Ajouter une photo</button><button type="button" class="secondary" id="p-photo-paste">Coller depuis le presse-papiers</button><button type="button" class="secondary hide" id="p-photo-remove">Retirer la photo</button><input id="p-photo-file" type="file" accept="image/*" capture="environment" class="hide" aria-label="Choisir une photo du produit"><button type="button" id="p-process-product">Traiter</button></div>
+     <div class="grid2">
+      <div class="field"><label>Code-barres principal (facultatif si inconnu)</label><input id="p-barcode" maxlength="32" inputmode="numeric" placeholder="À renseigner ultérieurement"></div>
+      <div class="field"><label>Nom du produit *</label><input id="p-name" required maxlength="160"></div>
+      <div class="field"><label>Marque</label><input id="p-brand" maxlength="100"></div>
+      <div class="field"><label>Catégorie</label><input id="p-category" maxlength="80" placeholder="Alimentaire, entretien…"></div>
+      <div class="field"><label>Quantité du conditionnement</label><input id="p-quantity" type="number" min="0" step="any"></div>
+      <div class="field"><label>Unité</label><select id="p-unit"><option value="">Non précisée</option><option>g</option><option>kg</option><option>ml</option><option>l</option><option>unité</option><option>botte</option><option>paquet</option></select></div>
+     </div>
+      <div id="p-photo-preview-wrap" class="hide" style="margin-top:10px"><img id="p-photo-preview" alt="Aperçu de la photo du produit" style="max-width:100%;width:auto;max-height:190px;object-fit:contain;border:1px solid var(--line);border-radius:10px;padding:5px;background:#fff"><div class="muted" id="p-photo-status" style="font-size:12px;margin-top:4px">Photo prête à être enregistrée avec le produit.</div></div>
+      <div id="p-photo-paste-zone" tabindex="0" role="group" style="margin-top:8px;padding:12px;border:2px dashed var(--line);border-radius:9px;text-align:center">Cliquez ici puis faites Ctrl+V (PC), ou utilisez « Coller depuis le presse-papiers » sur un navigateur compatible.</div><div class="muted" id="p-photo-paste-status" aria-live="polite" style="font-size:12px;margin-top:5px">Vous pouvez aussi choisir une image ou prendre une photo.</div>
+     </div>
+     <div class="grid2">
+      <div class="field"><label>Description</label><textarea id="p-description" rows="2" maxlength="1500"></textarea></div>
+      <div class="field"><label>Informations complémentaires / source</label><textarea id="p-source-notes" rows="2" maxlength="1000" placeholder="Informations relevées sur la capture, éléments à confirmer…"></textarea></div>
+     </div>
+     <div id="p-offer-details" class="hide">
+     <h3>Prix de l'offre relevée sur le prospectus</h3>
+     <div class="grid3">
+      <div class="field"><label>Prix affiché avant remise</label><input id="p-displayed-price" type="number" min="0" step="0.01" placeholder="Ex. 4.24"></div>
+      <div class="field"><label>Remise immédiate</label><input id="p-discount-amount" type="number" min="0" step="0.01" placeholder="Ex. 0.25"></div>
+      <div class="field"><label>Prix par dose / lavage</label><input id="p-dose-price" type="number" min="0" step="0.01" placeholder="Ex. 0.34"></div>
+      <div class="field"><label>Nombre de doses / lavages</label><input id="p-dose-count" type="number" min="0" step="1" placeholder="Ex. 38"></div>
+      <div class="field"><label>Conditionnement détaillé</label><input id="p-pack-description" maxlength="180" placeholder="Ex. baril 70 doses, 8 tranches"></div>
+      <div class="field"><label>Origine / calibre / conservation</label><input id="p-product-attributes" maxlength="240" placeholder="Ex. Inde, 16/20, surgelé"></div>
+     </div>
+     <div class="grid3">
+      <div class="field"><label>Prix affiché</label><input id="p-offer-price" type="number" min="0" step="0.01" placeholder="Ex. 3.99"></div>
+      <div class="field"><label>Devise</label><select id="p-offer-currency"><option value="EUR">EUR (€)</option><option value="MUR">MUR (Rs)</option></select></div>
+      <div class="field"><label>Prix au kg (affiché)</label><input id="p-unit-price" type="text" maxlength="40" placeholder="Ex. 10,96 €/kg"></div>
+      <div class="field"><label>Début de l'offre</label><input id="p-offer-start" type="date"></div>
+      <div class="field"><label>Fin de l'offre</label><input id="p-offer-end" type="date"></div>
+      <div class="field"><label>Labels / certifications</label><input id="p-labels" maxlength="160" placeholder="MSC, Porc Pays…"></div>
+     </div>
+     </div>
+     <div class="actions"><button type="submit">Enregistrer le produit</button><button type="button" class="secondary" id="cancel-product">Annuler</button></div>
+    </form>
+   </div>
+  </section>
+
+  <section class="view" id="view-stores">
+   <div class="pagehead"><div><h2>Magasins</h2><p>Référentiel des points de vente à Rodrigues et Maurice.</p></div></div>
+   <div class="panel">
+    <h3>Ajouter un magasin</h3>
+    <form id="store-form">
+     <div class="grid2">
+      <div class="field"><label>Nom du magasin *</label><input id="s-name" required maxlength="120"></div>
+      <div class="field"><label>Enseigne</label><input id="s-chain" maxlength="120"></div>
+      <div class="field"><label>Île</label><select id="s-island"><option>Rodrigues</option><option>Maurice</option></select></div>
+      <div class="field"><label>Localité / ville</label><input id="s-town" maxlength="100"></div>
+      <div class="field"><label>Adresse</label><input id="s-address" maxlength="240"></div>
+      <div class="field"><label>Téléphone</label><input id="s-phone" maxlength="40"></div>
+     </div>
+     <button type="submit">Ajouter le magasin</button>
+    </form>
+   </div>
+   <div class="panel"><h3>Magasins enregistrés</h3><div class="tablewrap"><table><thead><tr><th>Magasin</th><th>Enseigne</th><th>Localisation</th><th>Actions</th></tr></thead><tbody id="stores-table"></tbody></table></div></div>
+  </section>
+
+  <section class="view" id="view-prices">
+   <div class="pagehead"><div><h2>Prix & comparaison</h2><p>Chaque saisie ajoute un relevé daté sans effacer l'historique.</p></div></div>
+   <div class="panel">
+    <h3>Enregistrer un prix</h3>
+    <form id="price-form">
+     <div class="grid2">
+      <div class="field"><label>Produit *</label><select id="price-product" required></select></div>
+      <div class="field"><label>Magasin *</label><select id="price-store" required></select></div>
+      <div class="field"><label>Prix constaté (Rs) *</label><input id="price-amount" type="number" min="0" step="0.01" required></div>
+      <div class="field"><label>Prix promotionnel ?</label><select id="price-promo"><option value="false">Non</option><option value="true">Oui</option></select></div>
+      <div class="field"><label>Date du relevé</label><input id="price-date" type="date" required></div>
+      <div class="field"><label>Note facultative</label><input id="price-note" maxlength="200" placeholder="Promotion, format, rayon…"></div>
+     </div>
+     <button type="submit">Enregistrer ce prix</button>
+    </form>
+   </div>
+   <div class="panel">
+    <h3>Comparer les prix d'un produit</h3>
+    <div class="grid2">
+     <div class="field"><label>Produit à comparer</label><select id="compare-product"></select></div>
+     <div class="field"><label>Localité (facultatif)</label><input id="compare-town" placeholder="Ex. Port Mathurin"></div>
+    </div>
+    <div id="comparison-results"></div>
+   </div>
+   <div class="panel"><h3>Historique des relevés</h3><div class="tablewrap"><table><thead><tr><th>Date</th><th>Produit</th><th>Magasin</th><th>Prix</th><th>Promo</th><th>Actions</th></tr></thead><tbody id="prices-table"></tbody></table></div></div>
+  </section>
+
+  <section class="view" id="view-backup">
+   <div class="pagehead"><div><h2>Sauvegarde & restauration</h2><p>Exportez régulièrement les données de cet appareil.</p></div></div>
+   <div class="panel">
+    <h3>Exporter la base</h3><p class="muted">Produit, codes, magasins, relevés de prix et historique des scans.</p>
+    <button id="export-json">Exporter une sauvegarde JSON</button>
+   </div>
+   <div class="panel">
+    <h3>Importer une sauvegarde</h3><p class="muted">L'importation fusionne les enregistrements par identifiant. Elle ne supprime pas les données locales. Faites une sauvegarde avant import.</p>
+    <input type="file" id="import-file" accept=".json,application/json" style="margin-bottom:12px">
+    <button id="import-json">Importer et fusionner</button>
+    <div id="backup-message"></div>
+   </div>
+  </section>
+
+  <section class="view" id="view-diagnostics">
+   <div class="pagehead"><div><h2>Diagnostic & tests</h2><p>Tests locaux de cohérence. Les tests de charge utilisent une base temporaire séparée.</p></div><div class="actions"><button id="run-tests">Lancer les tests</button><button class="secondary" id="run-load-tests">Test de charge</button></div></div>
+   <div class="panel"><h3>État technique</h3><div id="diagnostic-status"></div></div>
+   <div class="panel"><h3>Résultats des tests</h3><div id="test-results"><div class="empty">Aucun test lancé.</div></div></div>
+  </section>
+ </main>
+</div>
+<div class="footer">ScanPrix <span id="footer-version">V1.42</span> · Sauvegardez régulièrement vos données.</div>
+</div>
+
+<script>
+"use strict";
+const APP_VERSION="1.42";
+const DB_NAME="ScanPrixDB", DB_VERSION=1;
+const STORES=["products","barcodes","stores","prices","scans"];
+let db=null, stream=null, scanLoop=false, lastDetected="", lastDetectedAt=0, scanBusy=false, torchEnabled=false, cameraTrack=null, zoomCapability=null, productModalReturnDashboard=false;
+const $=id=>document.getElementById(id);
+if($("app-version")) $("app-version").textContent="V"+APP_VERSION;
+if($("footer-version")) $("footer-version").textContent="V"+APP_VERSION;
+const uid=()=>crypto.randomUUID?crypto.randomUUID():"id-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2);
+const today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");};
+const escapeHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=n=>"Rs "+Number(n).toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2});
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,DB_VERSION);req.onupgradeneeded=()=>{const d=req.result;
+ if(!d.objectStoreNames.contains("products")){let s=d.createObjectStore("products",{keyPath:"id"});s.createIndex("name","name");}
+ if(!d.objectStoreNames.contains("barcodes")){let s=d.createObjectStore("barcodes",{keyPath:"code"});s.createIndex("productId","productId");}
+ if(!d.objectStoreNames.contains("stores")){let s=d.createObjectStore("stores",{keyPath:"id"});s.createIndex("name","name");}
+ if(!d.objectStoreNames.contains("prices")){let s=d.createObjectStore("prices",{keyPath:"id"});s.createIndex("productId","productId");s.createIndex("storeId","storeId");s.createIndex("date","date");}
+ if(!d.objectStoreNames.contains("scans")){let s=d.createObjectStore("scans",{keyPath:"id"});s.createIndex("scannedAt","scannedAt");}
+ };req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
+function tx(store,mode="readonly"){return db.transaction(store,mode).objectStore(store)}
+function reqPromise(req){return new Promise((resolve,reject)=>{req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
+async function all(store){return reqPromise(tx(store).getAll())}
+async function get(store,key){return reqPromise(tx(store).get(key))}
+async function put(store,value){return reqPromise(tx(store,"readwrite").put(value))}
+async function del(store,key){return reqPromise(tx(store,"readwrite").delete(key))}
+async function addProduct(data){
+ const code=String(data.barcode||"").trim();
+ if(code){
+  if(!validBarcode(code)||!validCheckDigit(code))throw Error("Le code-barres doit être un EAN/UPC valide.");
+  const existing=await get("barcodes",code);
+  if(existing&&existing.productId!==data.id)throw Error("Ce code-barres est déjà associé à un autre produit.");
+ }
+ const product={...data,barcode:code,updatedAt:new Date().toISOString()};
+ const t=db.transaction(["products","barcodes"],"readwrite");
+ const productStore=t.objectStore("products"), barcodeStore=t.objectStore("barcodes");
+ const previousReq=productStore.get(product.id);
+ previousReq.onsuccess=()=>{
+  const previous=previousReq.result;
+  if(previous?.barcode && previous.barcode!==code){
+   const oldReq=barcodeStore.get(previous.barcode);
+   oldReq.onsuccess=()=>{if(oldReq.result?.productId===product.id)barcodeStore.delete(previous.barcode);};
+  }
+  productStore.put(product);
+  if(code)barcodeStore.put({code,productId:product.id});
+ };
+ await new Promise((res,rej)=>{t.oncomplete=res;t.onerror=()=>rej(t.error);t.onabort=()=>rej(t.error||Error("Transaction annulée"));});
+ return product;
+}
+async function findProductByBarcode(code){const b=await get("barcodes",code);return b?get("products",b.productId):null}
+function normalizeBarcode(value){return String(value??"").replace(/[\s-]/g,"");}
+function isAndroidLocalFile(){return location.protocol==="file:"&&/Android/i.test(navigator.userAgent||"");}
+function classifyProductResponse(status,data){if(status===404)return "not_found";if(status===429||status>=500)return "service_error";if(status>=200&&status<300&&data&&data.product&&data.status!=="failure")return "found";if(status>=200&&status<300)return "not_found";return "http_error";}
+function explainFetchFailure(error,protocol){
+  if(error&&error.name==="AbortError")return "La requête a dépassé le délai autorisé. Vérifiez la connexion du téléphone et réessayez.";
+  if(protocol==="file:")return "L’application est ouverte comme fichier local (file://). Le navigateur du téléphone bloque souvent les appels Internet depuis ce contexte. Ouvrez ScanPrix depuis une adresse HTTPS.";
+  return "Le navigateur n’a reçu aucune réponse exploitable. Causes possibles : connexion du téléphone, DNS, VPN/bloqueur de contenu ou restriction CORS du serveur. Vérifiez l’adresse HTTPS et réessayez.";
+}
+function validBarcode(code){return /^(?:\d{8}|\d{12}|\d{13}|\d{14})$/.test(code)}
+function gtinCheckDigitValid(code){
+ const digits=[...code].map(Number), check=digits.pop();
+ let sum=0, weight=3;
+ for(let i=digits.length-1;i>=0;i--){sum+=digits[i]*weight;weight=weight===3?1:3;}
+ return (10-sum%10)%10===check;
+}
+function expandUPCE(code){
+ if(!/^\d{8}$/.test(code)||!["0","1"].includes(code[0]))return null;
+ const ns=code[0],a=code.slice(1,7),check=code[7],last=a[5];
+ let upca="";
+ if("012".includes(last)) upca=ns+a.slice(0,2)+last+"0000"+a.slice(2,5);
+ else if(last==="3") upca=ns+a.slice(0,3)+"00000"+a.slice(3,5);
+ else if(last==="4") upca=ns+a.slice(0,4)+"00000"+a[4];
+ else upca=ns+a.slice(0,5)+"0000"+last;
+ return upca+check;
+}
+function validCheckDigit(code){
+ if(!/^\d+$/.test(code))return false;
+ if(/^(?:\d{12}|\d{13}|\d{14})$/.test(code))return gtinCheckDigitValid(code);
+ if(/^\d{8}$/.test(code))return gtinCheckDigitValid(code)||gtinCheckDigitValid(expandUPCE(code)||"");
+ return false;
+}
+function showView(name){if(name!=="products" && $("product-form-panel")) $("product-form-panel").classList.add("hide");document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));document.querySelectorAll(".nav button[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===name));if(name==="prices")refreshPrices();if(name==="products")refreshProducts();if(name==="dashboard")refreshDashboard();if(name==="scanner")$("local-file-warning").classList.toggle("hide",!isAndroidLocalFile());}
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.goto)));
+function notice(text,type=""){return `<div class="notice ${type}">${escapeHTML(text)}</div>`}
+async function refreshAll(){await Promise.all([refreshDashboard(),refreshProducts(),refreshStores(),refreshPrices()]);}
+async function refreshDashboardProductSearch(){
+ const q=$("dashboard-product-search").value.trim().toLocaleLowerCase("fr");
+ const [products,barcodes]=await Promise.all([all("products"),all("barcodes")]);
+ const codesByProduct=new Map();
+ for(const b of barcodes){if(!codesByProduct.has(b.productId))codesByProduct.set(b.productId,[]);codesByProduct.get(b.productId).push(String(b.code||""));}
+ const matches=q?products.filter(p=>{
+  const codes=[p.barcode||"",...(codesByProduct.get(p.id)||[])];
+  const haystack=[p.name||"",p.brand||"",p.category||"",...codes].join(" ").toLocaleLowerCase("fr");
+  return haystack.includes(q);
+ }).sort((a,b)=>(a.name||"").localeCompare(b.name||"","fr")):[];
+ $("dashboard-product-count").textContent=matches.length+" produit(s)";
+ $("dashboard-product-results").innerHTML=!q?"":matches.length?`<div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>Produit</th><th>Marque</th><th>Catégorie</th><th>Codes-barres</th><th></th></tr></thead><tbody>${matches.map(p=>{
+  const codes=[...new Set([p.barcode||"",...(codesByProduct.get(p.id)||[])].filter(Boolean))];
+  return `<tr><td><strong>${escapeHTML(p.name||"Sans nom")}</strong></td><td>${escapeHTML(p.brand||"—")}</td><td>${escapeHTML(p.category||"—")}</td><td>${escapeHTML(codes.join(", ")||"À renseigner")}</td><td><button class="secondary" data-dashboard-edit-product="${escapeHTML(p.id)}">Ouvrir</button></td></tr>`;
+ }).join("")}</tbody></table></div>`:'<div class="empty" style="margin-top:12px">Aucune fiche produit trouvée.</div>';
+}
+async function refreshDashboard(){
+ const [p,barcodes,stores,prices,scans]=await Promise.all(STORES.map(all));
+ $("stat-products").textContent=p.length;$("stat-stores").textContent=stores.length;$("stat-prices").textContent=prices.length;$("stat-scans").textContent=scans.length;
+ const pmap=new Map(p.map(x=>[x.id,x])),smap=new Map(stores.map(x=>[x.id,x]));
+ const recent=[...prices].sort((a,b)=>(b.createdAt||b.date).localeCompare(a.createdAt||a.date)).slice(0,7);
+ $("recent-prices").innerHTML=recent.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th>Produit</th><th>Magasin</th><th>Prix</th></tr></thead><tbody>${recent.map(x=>`<tr><td>${escapeHTML(x.date)}</td><td>${escapeHTML(pmap.get(x.productId)?.name||"Produit supprimé")}</td><td>${escapeHTML(smap.get(x.storeId)?.name||"Magasin supprimé")}</td><td class="price">${money(x.amount)}</td></tr>`).join("")}</tbody></table></div>`:'<div class="empty">Aucun relevé enregistré.</div>';
+ const recentScans=[...scans].sort((a,b)=>(b.scannedAt||"").localeCompare(a.scannedAt||"")).slice(0,6);
+ $("recent-scans").innerHTML=recentScans.length?recentScans.map(x=>`<div class="testrow"><span>${escapeHTML(x.productName||"Produit inconnu")} <span class="muted">· ${escapeHTML(x.code)}</span></span><span class="muted">${new Date(x.scannedAt).toLocaleString("fr-FR")}</span></div>`).join(""):'<div class="empty">Aucun scan.</div>';
+}
+async function refreshProducts(){
+ const [ps,bs]=await Promise.all([all("products"),all("barcodes")]);const q=$("product-search").value.trim().toLowerCase();
+ const rows=ps.filter(p=>(p.name+" "+(p.brand||"")+" "+(p.barcode||"")).toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name));
+ $("product-count").textContent=ps.length+" produit(s)";
+ $("products-table").innerHTML=rows.length?rows.map(p=>{const codes=bs.filter(b=>b.productId===p.id).map(b=>b.code);return `<tr><td>${escapeHTML(codes.join(", ")||p.barcode||"À renseigner")}</td><td>${p.imageData?`<img src="${p.imageData}" alt="" style="width:48px;height:42px;object-fit:contain;float:left;margin-right:8px">`:""}<strong>${escapeHTML(p.name)}</strong><br><span class="muted">${escapeHTML(p.category||"")}</span></td><td>${escapeHTML(p.brand||"—")}</td><td>${escapeHTML([p.quantity,p.unit].filter(Boolean).join(" ")||"—")}</td><td>${p.offerPrice!==null&&p.offerPrice!==undefined?`<strong>${Number(p.offerPrice).toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})} ${escapeHTML(p.offerCurrency||"EUR")}</strong><br><span class="muted">${escapeHTML(p.unitPrice||"")}</span>`:"—"}</td><td><div class="actions"><button class="secondary" data-edit-product="${p.id}">Modifier</button><button class="danger" data-delete-product="${p.id}">Supprimer</button></div></td></tr>`}).join(""):'<tr><td colspan="6" class="empty">Aucun produit.</td></tr>';
+ $("price-product").innerHTML='<option value="">Choisir un produit</option>'+ps.map(p=>`<option value="${p.id}">${escapeHTML(p.name)}</option>`).join("");
+ $("compare-product").innerHTML='<option value="">Choisir un produit</option>'+ps.map(p=>`<option value="${p.id}">${escapeHTML(p.name)}</option>`).join("");
+}
+async function refreshStores(){const ss=await all("stores");$("stores-table").innerHTML=ss.length?ss.sort((a,b)=>a.name.localeCompare(b.name)).map(s=>`<tr><td><strong>${escapeHTML(s.name)}</strong></td><td>${escapeHTML(s.chain||"—")}</td><td>${escapeHTML([s.island,s.town,s.address].filter(Boolean).join(" · "))}</td><td><button class="danger" data-delete-store="${s.id}">Supprimer</button></td></tr>`).join(""):'<tr><td colspan="4" class="empty">Aucun magasin enregistré.</td></tr>';
+ $("price-store").innerHTML='<option value="">Choisir un magasin</option>'+ss.map(s=>`<option value="${s.id}">${escapeHTML(s.name)} — ${escapeHTML(s.town||s.island)}</option>`).join("");}
+async function refreshPrices(){
+ const [ps,ss,pr]=await Promise.all([all("products"),all("stores"),all("prices")]);const pm=new Map(ps.map(x=>[x.id,x])),sm=new Map(ss.map(x=>[x.id,x]));
+ const sorted=[...pr].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||"").localeCompare(a.createdAt||""));
+ $("prices-table").innerHTML=sorted.length?sorted.map(x=>`<tr><td>${escapeHTML(x.date)}</td><td>${escapeHTML(pm.get(x.productId)?.name||"Produit supprimé")}</td><td>${escapeHTML(sm.get(x.storeId)?.name||"Magasin supprimé")}</td><td class="price">${money(x.amount)}</td><td>${x.promo?'<span class="pill">Oui</span>':'Non'}</td><td><button class="danger" data-delete-price="${x.id}">Supprimer</button></td></tr>`).join(""):'<tr><td colspan="6" class="empty">Aucun relevé.</td></tr>';
+}
+let productPhotoData = undefined;
+let pendingCatalogProduct = null;
+function showProductPhoto(data){
+ productPhotoData=data;
+ const wrap=$("p-photo-preview-wrap"),img=$("p-photo-preview"),remove=$("p-photo-remove");
+ if(data){img.src=data;wrap.classList.remove("hide");remove.classList.remove("hide");$("p-photo-status").textContent="Photo prête à être enregistrée avec le produit.";}
+ else{img.removeAttribute("src");wrap.classList.add("hide");remove.classList.add("hide");$("p-photo-status").textContent="Aucune photo sélectionnée.";}
+}
+$("p-photo-button").onclick=()=>$("p-photo-file").click();
+async function optimizeProductPhotoBlob(blob){
+ if(!blob||!blob.type?.startsWith("image/"))throw Error("Le presse-papiers ne contient pas d’image.");
+ if(blob.size>12*1024*1024)throw Error("Image trop volumineuse (maximum 12 Mo).");
+ const source=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.readAsDataURL(blob);});
+ const image=await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error("Image illisible."));im.src=source;});
+ const max=1200,scale=Math.min(1,max/Math.max(image.naturalWidth,image.naturalHeight));
+ const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
+ const ctx=canvas.getContext("2d");if(!ctx)throw Error("Impossible de traiter cette image.");ctx.drawImage(image,0,0,canvas.width,canvas.height);
+ return canvas.toDataURL("image/jpeg",0.82);
+}
+async function pasteProductPhoto(){
+ try{
+  if(!navigator.clipboard?.read)throw Error("Lecture d’image directe non prise en charge. Sur PC, cliquez dans la zone pointillée puis faites Ctrl+V.");
+  const items=await navigator.clipboard.read();
+  for(const item of items){const type=item.types.find(t=>t.startsWith("image/"));if(type){const blob=await item.getType(type);showProductPhoto(await optimizeProductPhotoBlob(blob));$("p-photo-paste-status").textContent="Image copiée intégrée à la fiche produit.";return;}}
+  throw Error("Aucune image trouvée dans le presse-papiers.");
+ }catch(err){$("p-photo-paste-status").textContent=err.message||"Impossible de lire le presse-papiers.";}
+}
+$("p-photo-paste").onclick=pasteProductPhoto;
+$("p-photo-paste-zone").addEventListener("paste",async e=>{
+ const item=[...(e.clipboardData?.items||[])].find(x=>x.type.startsWith("image/"));
+ if(!item){$("p-photo-paste-status").textContent="Aucune image dans le contenu collé.";return;}
+ e.preventDefault();try{showProductPhoto(await optimizeProductPhotoBlob(item.getAsFile()));$("p-photo-paste-status").textContent="Image collée et prête à être enregistrée.";}catch(err){$("p-photo-paste-status").textContent=err.message;}
+});
+$("p-photo-file").addEventListener("change",async e=>{
+ const file=e.target.files&&e.target.files[0];if(!file)return;
+ if(!file.type.startsWith("image/")){alert("Sélectionnez un fichier image.");e.target.value="";return;}
+ if(file.size>12*1024*1024){alert("Image trop volumineuse (maximum 12 Mo). Choisissez une photo plus légère.");e.target.value="";return;}
+ try{
+  showProductPhoto(await optimizeProductPhotoBlob(file));
+ }catch(err){alert(err.message||"Impossible de charger cette photo.");}
+});
+$("p-photo-remove").onclick=()=>{showProductPhoto(null);$("p-photo-file").value="";};
+function flyerPriceValues(text){
+  const normalized=String(text||"").replace(/[€]/g," EUR ").replace(/(\d)\s+(\d{2})(?=\s*(?:EUR|€))/gi,"$1,$2");
+  const out=[];
+  const re=/(\d{1,3})\s*(?:,|\.)\s*(\d{2})\s*(?:EUR)?|(\d{1,3})\s*EUR\s*(\d{2})/gi;
+  let m;while((m=re.exec(normalized))){const value=Number((m[1]||m[3])+"."+(m[2]||m[4]));if(Number.isFinite(value)&&value>0&&value<10000)out.push({value,index:m.index,context:normalized.slice(Math.max(0,m.index-18),Math.min(normalized.length,m.index+24))});}
+  return out;
+}
+function parseFlyerText(raw){
+  const text=String(raw||"").replace(/\r/g,"\n");
+  const lines=text.split(/\n+/).map(x=>x.replace(/[|]/g,"I").replace(/\s+/g," ").trim()).filter(Boolean);
+  const upper=text.toUpperCase();
+  const result={text,brand:"",name:"",category:"",quantity:null,unit:"",description:"",offerPrice:null,displayedPrice:null,discountAmount:null,dosePrice:null,doseCount:null,packDescription:"",attributes:"",offerCurrency:"EUR",unitPrice:"",labels:[],notes:[]};
+  const has=(re)=>re.test(upper);
+  // Marque / produit : règles de reconnaissance par familles, puis repli générique.
+  if(has(/CHARAL/)){result.brand="CHARAL";result.name="L'Extra moelleux façon bouchère";result.category="Viande";result.description="Haché généreux — boîte de 8 portions de 110 g";result.quantity=880;result.unit="g";result.packDescription="Boîte de 8 × 110 g";}
+  else if(has(/MANOSQUE/)){result.brand="La Pizza de Manosque";result.name="Pizza de Manosque — sélection de produits";result.category="Pizza / produits surgelés";result.quantity=400;result.unit="g";result.packDescription="Boîte de 400 g";result.notes.push("Le prospectus indique une sélection de produits : le prix peut concerner plusieurs recettes.");if(has(/FRUITS? DE MER/))result.notes.push("Variante visible : fruits de mer.");if(has(/JAMBON/)&&has(/EMMENTAL/))result.notes.push("Variante visible : jambon-emmental.");}
+  else if(has(/CREVETTES?|PERLE MARINE/)){result.brand=has(/PERLE MARINE/) ? "Perle Marine" : "";result.name="Queues de crevettes tropicales 16/20";result.category="Poissonnerie / crustacés";result.quantity=280;result.unit="g";result.packDescription="Sachet de 280 g";result.attributes="Origine Inde ; calibre 16/20 ; surgelé";}
+  else if(has(/SKIP/)){result.brand="Skip";result.name="Lessive Skip capsules 3 en 1 Active Clean";result.category="Entretien / lessive";result.doseCount=38;result.packDescription="Boîte de 38 lavages";result.attributes="Capsules 3 en 1 ; Active Clean ; emballage sans plastique";result.notes.push("Poids annoncé « à partir de 517 g » : vérifier le poids exact de la référence choisie.");}
+  else if(has(/GAMA/)){result.brand="Gama";result.name="Lessive en poudre Gama Universal 3 en 1";result.category="Entretien / lessive";result.quantity=3.85;result.unit="kg";result.doseCount=70;result.packDescription="Baril de 70 doses";result.attributes="Universal ; blanc et couleurs ; lavage à froid ; fraîcheur intense";}
+  else if(has(/ENTREMONT/)||has(/COMT[ÉE]/)){result.brand="Entremont";result.name="Comté très fin AOP Entremont";result.category="Fromage";result.quantity=120;result.unit="g";result.packDescription="Barquette de 8 tranches — 120 g";result.attributes="Comté AOP";}
+  else {
+    const brandLine=lines.find(x=>/^[A-ZÀÂÇÉÈÊËÎÏÔÙÛÜŸ0-9'’ &.-]{3,45}$/.test(x)&&!/(PRIX|REMISE|NUTRI|SURGEL|NOUVEAU|BOITE|BOÎTE|KILO|SELECTION|SÉLECTION)/i.test(x));
+    if(brandLine)result.brand=brandLine.slice(0,100);
+    const candidate=lines.find(x=>x.length>=8&&!/(PRIX|REMISE|NUTRI.?SCORE|PRIX AU|SOIT LE KILO|SURGEL|NOUVEAU|LAVAGES?|DOSES?\b)/i.test(x)&&/[A-ZÀÂÇÉÈÊËÎÏÔÙÛÜŸ]/.test(x));
+    if(candidate)result.name=candidate.slice(0,160);
+  }
+  // Quantité nette et conditionnement : ne pas confondre le nombre de lavages avec un poids.
+  if(result.quantity===null){
+    const weightMatches=[...text.matchAll(/(?:SACHET|BO[IÎ]TE|BARQUETTE|BARIL|PAQUET|BOCAL)?[^\n]{0,45}?(\d+(?:[,.]\d+)?)\s*(KG|G|ML|CL|L)\b/gi)];
+    const valid=weightMatches.map(m=>({value:Number(m[1].replace(',','.')),unit:m[2].toLowerCase()})).filter(x=>x.value>0);
+    if(valid.length){const q=valid[0];result.quantity=q.value;result.unit=q.unit;}
+  }
+  const doses=text.match(/\b(\d{1,3})\s*(?:DOSES?|LAVAGES?|CAPSULES?)\b/i);
+  if(doses&&!result.doseCount)result.doseCount=Number(doses[1]);
+  const packCount=text.match(/\b(?:BO[IÎ]TE|BARQUETTE|SACHET)\s+DE\s+(\d{1,2})\s*(?:TRANCHES?|PI[EÈ]CES?)\b/i);
+  if(packCount&&!result.packDescription)result.packDescription=packCount[0];
+  if(!result.packDescription){const pack=text.match(/\bX\s*(\d{1,2})\b/i);if(pack)result.packDescription=pack[1]+" pièces";}
+  if(has(/ORIGINE\s+INDE/))result.attributes=[result.attributes,"Origine Inde"].filter(Boolean).join(" ; ");
+  if(has(/16\s*\/\s*20/))result.attributes=[result.attributes,"Calibre 16/20"].filter(Boolean).join(" ; ");
+  if(has(/SURGEL[ÉE]?/))result.labels.push("Surgelé");
+  if(has(/VIANDE\s+BOVINE\s+FRAN[ÇC]AISE/))result.labels.push("Viande bovine française");
+  if(has(/AOP/))result.labels.push("AOP");
+  if(has(/EMBALLAGE\s+SANS\s+PLASTIQUE/))result.attributes=[result.attributes,"Emballage sans plastique"].filter(Boolean).join(" ; ");
+  if(has(/NUTRI.?SCORE\s*[A-E]/))result.notes.push("Nutri-Score détecté : lettre à vérifier sur l'image.");
+  // Extraction des prix avec priorité aux libellés explicites.
+  const prices=flyerPriceValues(text);
+  const findPrice=(patterns)=>{for(const pattern of patterns){const m=pattern.exec(text);if(m){const after=text.slice(m.index+m[0].length,m.index+m[0].length+55);const next=flyerPriceValues(after);if(next.length)return next[0].value;const before=text.slice(Math.max(0,m.index-45),m.index);const prev=flyerPriceValues(before);if(prev.length)return prev[prev.length-1].value;}}return null;};
+  result.displayedPrice=findPrice([/PRIX\s+AFFICH[ÉE]/i]);
+  result.discountAmount=findPrice([/REMISE\s+IMM[ÉE]DIATE/i]);
+  result.offerPrice=findPrice([/PRIX\s+EN\s+CAISSE/i,/PRIX\s+PAY[ÉE]/i,/PRIX\s+PROMO/i]);
+  const amountMatches=flyerPriceValues(text);
+  if(result.offerPrice===null){
+    const km=/(?:SOIT\s+LE\s+KILO|AU\s+KILO|KILO)\s*[:：]?\s*(\d{1,3}[,.]\d{2})/i.exec(text);
+    const dm=/(\d{1,3}[,.]\d{2})\s*€?\s*(?:LA\s+)?DOSE/i.exec(text);
+    const unitValue=km?Number(km[1].replace(',','.')):null;
+    const doseValue=dm?Number(dm[1].replace(',','.')):null;
+    const candidates=amountMatches.filter(x=>(unitValue===null||Math.abs(x.value-unitValue)>0.001)&&(doseValue===null||Math.abs(x.value-doseValue)>0.001));
+    if(result.displayedPrice!==null)result.offerPrice=result.displayedPrice;
+    else if(candidates.length){result.offerPrice=candidates[candidates.length-1].value;result.notes.push("Prix principal extrait sans libellé explicite : vérifier le visuel.");}
+  }
+  const doseMatch=text.match(/(\d{1,3}[,.]\d{2})\s*€?\s*(?:LA\s+)?DOSE/i);
+  if(doseMatch)result.dosePrice=Number(doseMatch[1].replace(',','.'));
+  else {const dm=/DOSE/i.exec(text);if(dm){const before=text.slice(Math.max(0,dm.index-35),dm.index);const d=flyerPriceValues(before);if(d.length)result.dosePrice=d[d.length-1].value;}}
+  const kiloMatch=/(?:SOIT\s+LE\s+KILO|AU\s+KILO|KILO)\s*[:：]?\s*(\d{1,3}[,.]\d{2})\s*€?/i.exec(text);
+  if(kiloMatch)result.unitPrice=kiloMatch[1].replace('.',',')+" €/kg";
+  else {const perKg=/(\d{1,3}[,.]\d{2})\s*€?\s*\/\s*KG/i.exec(text);if(perKg)result.unitPrice=perKg[1].replace('.',',')+" €/kg";}
+  if(result.displayedPrice!==null)result.notes.push("Prix affiché avant remise : "+result.displayedPrice.toFixed(2)+" EUR.");
+  if(result.discountAmount!==null)result.notes.push("Remise immédiate : "+result.discountAmount.toFixed(2)+" EUR.");
+  if(result.dosePrice!==null)result.notes.push("Prix par dose/lavage : "+result.dosePrice.toFixed(2)+" EUR.");
+  if(result.quantity!==null&&result.unit&&result.offerPrice!==null&&/^(g|kg)$/.test(result.unit)){
+    const kg=result.unit==="g"?result.quantity/1000:result.quantity;
+    if(kg>0){const calculated=result.offerPrice/kg;result.notes.push("Prix au kilo calculé à partir du prix retenu et du poids : "+calculated.toFixed(2)+" EUR/kg (à comparer au prix imprimé).")}
+  }
+  if(!result.name)result.notes.push("Nom du produit non identifié avec suffisamment de fiabilité : saisie manuelle nécessaire.");
+  return result;
+}
+async function readFlyerWithOCR(dataUrl){
+  if(!dataUrl)throw Error("Ajoutez d’abord une photo ou une image du prospectus.");
+  const image=new Image();image.src=dataUrl;await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(Error("Image impossible à lire."));});
+  const max=2200,scale=Math.min(1,max/Math.max(image.naturalWidth,image.naturalHeight));
+  const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
+  const ctx=canvas.getContext("2d");if(!ctx)throw Error("Traitement d’image indisponible.");ctx.drawImage(image,0,0,canvas.width,canvas.height);
+  const T=await loadTesseract();const worker=await T.createWorker("fra+eng");
+  try{const result=await worker.recognize(canvas);return result?.data?.text||"";}finally{await worker.terminate();}
+}
+$("p-process-product").onclick=async()=>{
+  const button=$("p-process-product");button.disabled=true;button.textContent="Traitement OCR…";
+  try{
+    if(pendingCatalogProduct){
+      const p=pendingCatalogProduct,e=p.externalInfo||{};
+      $("p-barcode").value=p.barcode||$("p-barcode").value;$("p-name").value=p.name||$("p-name").value;$("p-brand").value=p.brand||$("p-brand").value;$("p-category").value=p.category||$("p-category").value;$("p-description").value=p.description||$("p-description").value;
+      const q=String(e.quantity||"").match(/[0-9]+(?:[.,][0-9]+)?/);if(q&&!$("p-quantity").value)$("p-quantity").value=q[0].replace(",",".");
+      if(!$("p-unit").value){const u=String(e.quantity||"").match(/\b(kg|g|ml|cl|l|litre|litres)\b/i);if(u)$("p-unit").value=/litres?/i.test(u[1])?"l":u[1].toLowerCase();}
+      $("p-labels").value=e.labels||$("p-labels").value;$("p-source-notes").value=[p.sourceUrl||p.source||"Catalogue distant",e.ingredients?"Ingrédients : "+e.ingredients:"",e.allergens?"Allergènes : "+e.allergens:"",e.countries?"Pays : "+e.countries:""].filter(Boolean).join("\n");
+    }
+    if(productPhotoData){
+      const ocrText=await readFlyerWithOCR(productPhotoData);const parsed=parseFlyerText(ocrText);
+      if(parsed.name&&!$("p-name").value)$("p-name").value=parsed.name;
+      if(parsed.brand&&!$("p-brand").value)$("p-brand").value=parsed.brand;
+      if(parsed.category&&!$("p-category").value)$("p-category").value=parsed.category;
+      if(parsed.quantity!==null&&!$("p-quantity").value)$("p-quantity").value=parsed.quantity;
+      if(parsed.unit&&!$("p-unit").value)$("p-unit").value=parsed.unit;
+      if(parsed.description&&!$("p-description").value)$("p-description").value=parsed.description;
+      if(parsed.offerPrice!==null&&!$("p-offer-price").value)$("p-offer-price").value=parsed.offerPrice.toFixed(2);
+      if(parsed.displayedPrice!==null&&!$("p-displayed-price").value)$("p-displayed-price").value=parsed.displayedPrice.toFixed(2);
+      if(parsed.discountAmount!==null&&!$("p-discount-amount").value)$("p-discount-amount").value=parsed.discountAmount.toFixed(2);
+      if(parsed.dosePrice!==null&&!$("p-dose-price").value)$("p-dose-price").value=parsed.dosePrice.toFixed(2);
+      if(parsed.doseCount!==null&&!$("p-dose-count").value)$("p-dose-count").value=parsed.doseCount;
+      if(parsed.packDescription&&!$("p-pack-description").value)$("p-pack-description").value=parsed.packDescription;
+      if(parsed.attributes&&!$("p-product-attributes").value)$("p-product-attributes").value=parsed.attributes;
+      if(parsed.unitPrice&&!$("p-unit-price").value)$("p-unit-price").value=parsed.unitPrice;
+      if(parsed.labels.length&&!$("p-labels").value)$("p-labels").value=parsed.labels.join(", ");
+      const existing=$("p-source-notes").value.trim();$("p-source-notes").value=[existing,"Extraction OCR du prospectus — texte brut à vérifier :",ocrText,parsed.notes.join("\n")].filter(Boolean).join("\n\n");
+      if(!ocrText.trim())throw Error("Aucun texte détecté sur l’image. Essayez une image plus nette.");
+      $("p-photo-paste-status").textContent="Prospectus analysé. Les champs extraits sont préremplis ; vérifiez les prix et le conditionnement.";
+    }
+    if(!$("p-name").value.trim())throw Error("Aucun nom de produit détecté. Renseignez le nom manuellement puis relancez Traiter.");
+    $("product-form-title").textContent="Produit traité — vérifiez les informations avant enregistrement";
+    $("product-form-panel").scrollIntoView({behavior:"smooth"});
+  }catch(err){alert(err.message||"Traitement impossible.");}
+  finally{button.disabled=false;button.textContent="Traiter";}
+};
+function safeHttpUrl(value){
+ try{const u=new URL(String(value||""));return (u.protocol==="https:"||u.protocol==="http:")?u.href:"";}catch(_){return "";}
+}
+function renderDashboardProductDetails(p){
+ const e=p.externalInfo||{},offers=Array.isArray(p.catalogOffers)?p.catalogOffers:[];
+ const items=[
+  ["Code-barres",p.barcode],["Marque",p.brand],["Catégorie",p.category],
+  ["Quantité du conditionnement",p.quantity!==null&&p.quantity!==undefined?p.quantity:""],["Unité",p.unit],
+  ["Conditionnement détaillé",p.packDescription],["Prix de l'offre",p.offerPrice!==null&&p.offerPrice!==undefined?`${p.offerPrice} ${p.offerCurrency||""}`:""],
+  ["Prix affiché avant remise",p.displayedPrice],["Remise immédiate",p.discountAmount],["Prix par dose / lavage",p.dosePrice],
+  ["Nombre de doses / lavages",p.doseCount],["Prix unitaire",p.unitPrice],["Début de l'offre",p.offerStart],["Fin de l'offre",p.offerEnd],
+  ["Labels / certifications",p.labels],["Origine / calibre / conservation",p.attributes],["Description",p.description],
+  ["Informations / source",p.sourceNotes],["Source",p.source],["Type de produit",e.productType],
+  ["Quantité externe",e.quantity],["Emballage",Array.isArray(e.packaging)?e.packaging.join(", "):e.packaging],
+  ["Origines",e.origins],["Pays",Array.isArray(e.countries)?e.countries.join(", "):e.countries],
+  ["Ingrédients",e.ingredients],["Allergènes",e.allergens],["Conservation",e.conservation],["Fabricant",e.manufacturingPlaces]
+ ];
+ const shown=items.filter(([,v])=>v!==null&&v!==undefined&&String(v).trim()!=="");
+ const links=[],primary=safeHttpUrl(p.sourceUrl);
+ if(primary)links.push({url:primary,label:"Ouvrir le site source"});
+ offers.forEach((o,i)=>{const url=safeHttpUrl(o.productUrl);if(url&&!links.some(x=>x.url===url))links.push({url,label:`Ouvrir l'offre ${i+1} · ${o.source||o.chain||"Catalogue"}`});});
+ const nutrition=e.nutrition&&typeof e.nutrition==="object"?Object.entries(e.nutrition).filter(([,v])=>v!==null&&v!==undefined&&v!==""):[];
+ const offerHtml=offers.length?`<div class="product-detail-section"><h4>Historique des offres catalogue (${offers.length})</h4><div class="tablewrap"><table><thead><tr><th>Source / magasin</th><th>Catégorie</th><th>Prix</th><th>Fin d'offre</th></tr></thead><tbody>${offers.map(o=>`<tr><td>${escapeHTML([o.source,o.chain,o.store].filter(Boolean).join(" · ")||"—")}</td><td>${escapeHTML(o.category||"—")}</td><td>${o.price!==null&&o.price!==undefined?escapeHTML(o.price+" "+(o.currency||"")):"—"}</td><td>${escapeHTML(o.offerEnd||"—")}</td></tr>`).join("")}</tbody></table></div></div>`:"";
+ const nutritionHtml=nutrition.length?`<div class="product-detail-section"><h4>Valeurs nutritionnelles</h4><div class="product-detail-grid">${nutrition.map(([k,v])=>`<div class="product-detail-item"><span>${escapeHTML(k)}</span><strong>${escapeHTML(v)}</strong></div>`).join("")}</div></div>`:"";
+ return `<div><strong>Informations complètes du produit</strong><div class="product-detail-grid">${shown.length?shown.map(([k,v])=>`<div class="product-detail-item"><span>${escapeHTML(k)}</span><strong>${escapeHTML(v)}</strong></div>`).join(""):'<div class="muted">Aucune information complémentaire enregistrée.</div>'}</div>${offerHtml}${nutritionHtml}${links.length?`<div class="product-detail-links">${links.map(x=>`<a href="${escapeHTML(x.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(x.label)}</a>`).join("")}</div>`:'<p class="muted" style="margin:12px 0 0">Aucun lien Internet enregistré pour ce produit.</p>'}</div>`;
+}
+function closeProductModal(){
+ $("product-form-panel").classList.remove("product-modal");
+ $("product-form-panel").classList.add("hide");
+ if($("dashboard-product-full-details")){$("dashboard-product-full-details").style.display="none";$("dashboard-product-full-details").innerHTML="";}
+ $("p-offer-details").classList.add("hide");
+ document.body.classList.remove("product-modal-open");
+ $("cancel-product").textContent="Annuler";
+ const returnToDashboard=productModalReturnDashboard;
+ productModalReturnDashboard=false;
+ if(returnToDashboard) showView("dashboard");
+}
+function resetProductForm(){ pendingCatalogProduct=null; $("product-form").reset();$("p-id").value="";showProductPhoto(null);$("p-photo-file").value="";$("product-form-title").textContent="Ajouter un produit";closeProductModal(); }
+$("new-product").onclick=()=>{productModalReturnDashboard=false;resetProductForm();$("product-form-panel").classList.remove("hide");$("product-form-panel").scrollIntoView({behavior:"smooth"});};
+$("cancel-product").onclick=resetProductForm;
+$("product-search").addEventListener("input",refreshProducts);
+$("dashboard-product-search").addEventListener("input",refreshDashboardProductSearch);
+$("dashboard-product-search-button").addEventListener("click",refreshDashboardProductSearch);
+$("dashboard-product-search").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();refreshDashboardProductSearch();}});
+$("product-form").onsubmit=async e=>{e.preventDefault();try{
+ const id=$("p-id").value||uid(), old=await get("products",id);
+ const data={...(pendingCatalogProduct||{}),...(old||{}),id,barcode:$ ("p-barcode").value.trim(),name:$("p-name").value.trim(),brand:$("p-brand").value.trim(),category:$("p-category").value.trim(),quantity:$("p-quantity").value?Number($("p-quantity").value):null,unit:$("p-unit").value,description:$("p-description").value.trim(),offerPrice:$("p-offer-price").value?Number($("p-offer-price").value):null,displayedPrice:$("p-displayed-price").value?Number($("p-displayed-price").value):null,discountAmount:$("p-discount-amount").value?Number($("p-discount-amount").value):null,dosePrice:$("p-dose-price").value?Number($("p-dose-price").value):null,doseCount:$("p-dose-count").value?Number($("p-dose-count").value):null,packDescription:$("p-pack-description").value.trim(),attributes:$("p-product-attributes").value.trim(),offerCurrency:$("p-offer-currency").value,unitPrice:$("p-unit-price").value.trim(),offerStart:$("p-offer-start").value,offerEnd:$("p-offer-end").value,labels:$("p-labels").value.trim(),sourceNotes:$("p-source-notes").value.trim(),imageData:productPhotoData!==undefined?productPhotoData:(old?.imageData||null),createdAt:old?.createdAt||new Date().toISOString()};
+ if(!data.name)throw Error("Nom du produit obligatoire.");if(data.barcode && !validBarcode(data.barcode))throw Error("Le code-barres doit comporter 8, 12, 13 ou 14 chiffres.");if(data.barcode && !validCheckDigit(data.barcode))throw Error("La clé de contrôle du code-barres est invalide. Vérifiez la lecture.");
+ const wasDashboardModal=productModalReturnDashboard;await addProduct(data);resetProductForm();await refreshAll();if(wasDashboardModal)showView("dashboard");alert("Produit enregistré.");}catch(err){alert(err.message||"Erreur d'enregistrement.");}};
+document.addEventListener("click",async e=>{
+ const dashboardEdit=e.target.closest("[data-dashboard-edit-product]");
+ if(dashboardEdit){
+  const p=await get("products",dashboardEdit.dataset.dashboardEditProduct);if(!p)return;
+  pendingCatalogProduct=null;productModalReturnDashboard=true;
+  $("p-id").value=p.id;$("p-barcode").value=p.barcode||"";$("p-name").value=p.name||"";$("p-brand").value=p.brand||"";$("p-category").value=p.category||"";$("p-quantity").value=p.quantity??"";$("p-unit").value=p.unit||"";$("p-description").value=p.description||"";
+  $("p-offer-price").value=p.offerPrice??"";$("p-displayed-price").value=p.displayedPrice??"";$("p-discount-amount").value=p.discountAmount??"";$("p-dose-price").value=p.dosePrice??"";$("p-dose-count").value=p.doseCount??"";
+  $("p-pack-description").value=p.packDescription||"";$("p-product-attributes").value=p.attributes||"";$("p-offer-currency").value=p.offerCurrency||"EUR";$("p-unit-price").value=p.unitPrice||"";
+  $("p-offer-start").value=p.offerStart||"";$("p-offer-end").value=p.offerEnd||"";$("p-labels").value=p.labels||"";$("p-source-notes").value=p.sourceNotes||"";
+  showProductPhoto(p.imageData??undefined);$("p-photo-file").value="";$("product-form-title").textContent="Modifier le produit";
+  $("dashboard-product-full-details").innerHTML=renderDashboardProductDetails(p);$("dashboard-product-full-details").style.display="block";
+  $("p-offer-details").classList.remove("hide");
+  $("cancel-product").textContent="Fermer";$("product-form-panel").classList.remove("hide");$("product-form-panel").classList.add("product-modal");document.body.classList.add("product-modal-open");
+  $("p-name").focus();return;
+ }
+ const edit=e.target.closest("[data-edit-product]");if(edit){productModalReturnDashboard=false;$("dashboard-product-full-details").style.display="none";$("dashboard-product-full-details").innerHTML="";$("p-offer-details").classList.add("hide");$("product-form-panel").classList.remove("product-modal");document.body.classList.remove("product-modal-open");pendingCatalogProduct=null;const p=await get("products",edit.dataset.editProduct);if(!p)return;$("p-id").value=p.id;$("p-barcode").value=p.barcode;$("p-name").value=p.name;$("p-brand").value=p.brand||"";$("p-category").value=p.category||"";$("p-quantity").value=p.quantity??"";$("p-unit").value=p.unit||"";$("p-description").value=p.description||"";$("p-offer-price").value=p.offerPrice??"";$("p-displayed-price").value=p.displayedPrice??"";$("p-discount-amount").value=p.discountAmount??"";$("p-dose-price").value=p.dosePrice??"";$("p-dose-count").value=p.doseCount??"";$("p-pack-description").value=p.packDescription||"";$("p-product-attributes").value=p.attributes||"";$("p-offer-currency").value=p.offerCurrency||"EUR";$("p-unit-price").value=p.unitPrice||"";$("p-offer-start").value=p.offerStart||"";$("p-offer-end").value=p.offerEnd||"";$("p-labels").value=p.labels||"";$("p-source-notes").value=p.sourceNotes||"";showProductPhoto(p.imageData??undefined);$("p-photo-file").value="";$("product-form-title").textContent="Modifier le produit";$("product-form-panel").classList.remove("hide");$("product-form-panel").scrollIntoView({behavior:"smooth"});}
+ const dp=e.target.closest("[data-delete-product]");if(dp){const id=dp.dataset.deleteProduct;const [pr,bs]=await Promise.all([all("prices"),all("barcodes")]);if(pr.some(x=>x.productId===id)){alert("Suppression refusée : ce produit possède un historique de prix. Les relevés ne doivent jamais être supprimés automatiquement.");return;}if(!confirm("Supprimer ce produit ?"))return;const t=db.transaction(["products","barcodes"],"readwrite");t.objectStore("products").delete(id);bs.filter(x=>x.productId===id).forEach(x=>t.objectStore("barcodes").delete(x.code));await new Promise((r,j)=>{t.oncomplete=r;t.onerror=()=>j(t.error)});await refreshAll();}
+ const ds=e.target.closest("[data-delete-store]");if(ds){const id=ds.dataset.deleteStore;const linked=(await all("prices")).some(x=>x.storeId===id);if(linked){alert("Suppression refusée : ce magasin possède des relevés de prix. Supprimez ou réaffectez ces relevés avant.");return;}if(confirm("Supprimer ce magasin ?")){await del("stores",id);await refreshAll();}}
+ const dpr=e.target.closest("[data-delete-price]");if(dpr&&confirm("Supprimer ce relevé ?")){await del("prices",dpr.dataset.deletePrice);await refreshAll();}
+});
+$("store-form").onsubmit=async e=>{e.preventDefault();const name=$("s-name").value.trim();if(!name)return;await put("stores",{id:uid(),name,chain:$("s-chain").value.trim(),island:$("s-island").value,town:$("s-town").value.trim(),address:$("s-address").value.trim(),phone:$("s-phone").value.trim(),createdAt:new Date().toISOString()});e.target.reset();await refreshAll();};
+$("price-date").value=today();
+$("price-form").onsubmit=async e=>{e.preventDefault();const productId=$("price-product").value,storeId=$("price-store").value,amount=Number($("price-amount").value);if(!productId||!storeId||!Number.isFinite(amount)||amount<0){alert("Produit, magasin et prix valide sont obligatoires.");return;}
+ await put("prices",{id:uid(),productId,storeId,amount,currency:"MUR",date:$("price-date").value||today(),promo:$("price-promo").value==="true",note:$("price-note").value.trim(),createdAt:new Date().toISOString()});$("price-amount").value="";$("price-note").value="";await refreshAll();alert("Relevé de prix enregistré.");};
+async function comparePrices(){const id=$("compare-product").value;if(!id){$("comparison-results").innerHTML=notice("Sélectionnez un produit.");return;}const [p,ss,ps]=await Promise.all([get("products",id),all("stores"),all("prices")]);const sm=new Map(ss.map(s=>[s.id,s]));const town=$("compare-town").value.trim().toLowerCase();const rows=ps.filter(x=>x.productId===id&&sm.has(x.storeId)&&(!town||((sm.get(x.storeId).town||"").toLowerCase().includes(town)))).sort((a,b)=>a.amount-b.amount);$("comparison-results").innerHTML=rows.length?`<div class="notice">Comparaison de ${escapeHTML(p.name)} — ${rows.length} relevé(s). Les dates sont affichées pour tenir compte de l'ancienneté des prix.</div><div class="tablewrap"><table><thead><tr><th>Magasin</th><th>Localité</th><th>Date</th><th>Prix</th><th>Conditionnement</th></tr></thead><tbody>${rows.map(x=>{const s=sm.get(x.storeId);return `<tr><td>${escapeHTML(s.name)}</td><td>${escapeHTML([s.island,s.town].filter(Boolean).join(" · "))}</td><td>${escapeHTML(x.date)}</td><td class="price">${money(x.amount)} ${x.promo?"(promo)":""}</td><td>${escapeHTML([p.quantity,p.unit].filter(Boolean).join(" ")||"Non précisé")}</td></tr>`}).join("")}</tbody></table></div>`:'<div class="empty">Aucun prix enregistré pour ce produit et ce filtre.</div>';}
+$("compare-product").onchange=comparePrices;$("compare-town").oninput=comparePrices;
+
+async function fetchProductFromCatalog(code){
+  const fields="all";
+  const endpoint="https://world.openfoodfacts.org/api/v3/product/"+encodeURIComponent(code)+".json?product_type=all&lc=fr&cc=mu&fields="+encodeURIComponent(fields);
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),16000);
+  try{
+    const response=await fetch(endpoint,{method:"GET",mode:"cors",credentials:"omit",redirect:"follow",signal:controller.signal,cache:"no-store"});
+    if(response.status===404)return {found:false,status:404};
+    if(response.status===429)throw Error("Limite de requêtes Open Food Facts atteinte (HTTP 429). Réessayez plus tard.");
+    if(response.status>=500)throw Error("Service de données temporairement indisponible (HTTP "+response.status+").");
+    if(!response.ok)throw Error("Réponse API inattendue (HTTP "+response.status+").");
+    const data=await response.json();
+    if(!data||data.status==="failure"||!data.product)return {found:false,status:404};
+    return {found:true,product:data.product,sourceUrl:response.url||endpoint,sourceDomain:(()=>{try{return new URL(response.url||endpoint).hostname}catch(e){return "world.openfoodfacts.org"}})()};
+  }finally{clearTimeout(timeout);}
+}
+function catalogProductToScanPrix(x,code,sourceDomain){
+  const first=(v)=>Array.isArray(v)?v.filter(Boolean).slice(0,12).join(", "):String(v||"");
+  const nutrients=x.nutriments||{};
+  const nutrition={};
+  ["energy-kcal_100g","fat_100g","saturated-fat_100g","carbohydrates_100g","sugars_100g","fiber_100g","proteins_100g","salt_100g","sodium_100g"].forEach(k=>{if(nutrients[k]!==undefined&&nutrients[k]!==null&&nutrients[k]!=="")nutrition[k]=nutrients[k];});
+  const name=x.product_name_fr||x.product_name||x.abbreviated_product_name_fr||x.abbreviated_product_name||"";
+  return {
+    id:uid(),barcode:code,name,brand:first(x.brands),category:first(x.categories_tags||x.categories),
+    quantity:null,unit:"",description:x.generic_name_fr||x.generic_name||x.product_description||"",
+    image:x.image_front_url||x.image_url||x.image_front_small_url||"",
+    source:sourceDomain,sourceUrl:"https://"+sourceDomain+"/product/"+code,
+    externalInfo:{
+      productType:x.product_type||"",quantity:x.quantity||"",packaging:first(x.packaging_tags||x.packaging),
+      countries:first(x.countries_tags||x.countries),origins:x.origins||"",manufacturingPlaces:x.manufacturing_places||"",
+      ingredients:x.ingredients_text_fr||x.ingredients_text||"",allergens:first(x.allergens_tags||x.allergens),traces:first(x.traces_tags||x.traces),
+      labels:first(x.labels_tags||x.labels),nutriScore:x.nutriscore_grade||x.nutrition_grade_fr||"",ecoScore:x.ecoscore_grade||"",novaGroup:x.nova_group||"",
+      nutrition,images:{front:x.image_front_url||"",ingredients:x.image_ingredients_url||"",nutrition:x.image_nutrition_url||""},
+      completeness:x.completeness??null,lastUpdated:x.last_modified_t||x.last_modified||null,raw:x
+    },createdAt:new Date().toISOString()
+  };
+}
+function renderExternalProduct(p,allowSave=true){
+  const e=p.externalInfo||{};const row=(label,value)=>value?`<div class="testrow"><span>${escapeHTML(label)}</span><strong>${escapeHTML(value)}</strong></div>`:"";
+  const nut=e.nutrition||{};const nutLabels={"energy-kcal_100g":"Énergie (kcal/100 g)","fat_100g":"Matières grasses (g/100 g)","saturated-fat_100g":"Acides gras saturés (g/100 g)","carbohydrates_100g":"Glucides (g/100 g)","sugars_100g":"Sucres (g/100 g)","fiber_100g":"Fibres (g/100 g)","proteins_100g":"Protéines (g/100 g)","salt_100g":"Sel (g/100 g)","sodium_100g":"Sodium (g/100 g)"};
+  const nutritionRows=Object.entries(nut).map(([k,v])=>row(nutLabels[k]||k,String(v))).join("");
+  const image=p.image?`<img src="${escapeHTML(p.image)}" alt="Photo du produit" loading="lazy" style="max-width:150px;max-height:150px;object-fit:contain;float:right;margin:0 0 10px 12px;border-radius:8px" onerror="this.style.display='none'">`:"";
+  return `<div class="result">${image}<strong>${escapeHTML(p.name||"Nom non renseigné")}</strong>${row("Marque",p.brand)}${row("Catégorie",p.category)}${row("Description",p.description)}${row("Conditionnement",e.quantity)}${row("Type de produit",e.productType)}${row("Emballage",e.packaging)}${row("Pays de vente",e.countries)}${row("Origine",e.origins)}${row("Lieu de fabrication",e.manufacturingPlaces)}${row("Ingrédients",e.ingredients)}${row("Allergènes",e.allergens)}${row("Traces",e.traces)}${row("Labels",e.labels)}${row("Nutri-Score",e.nutriScore)}${row("Eco-Score",e.ecoScore)}${row("Groupe NOVA",e.novaGroup)}${nutritionRows?`<h4>Valeurs nutritionnelles</h4>${nutritionRows}`:""}${row("Complétude de la fiche",e.completeness!==null?Math.round(Number(e.completeness)*100)+" %":"")}${row("Dernière mise à jour source",e.lastUpdated?new Date(Number(e.lastUpdated)*1000).toLocaleDateString("fr-FR"):"")}<p class="muted">Source : ${escapeHTML(p.source||"Base produit")} · Code : ${escapeHTML(p.barcode)}</p><div class="actions"><a href="${escapeHTML(p.sourceUrl||"https://world.openfoodfacts.org/product/"+p.barcode)}" target="_blank" rel="noopener">Ouvrir la fiche source</a><a href="https://www.gs1.org/services/verified-by-gs1" target="_blank" rel="noopener">Vérifier l’identifiant auprès de GS1</a></div>${allowSave?'<button id="save-online-product" type="button">Confirmer et enregistrer dans ScanPrix</button>':''}</div>`;
+}
+async function lookupBarcode(){
+  const code=normalizeBarcode($("barcode-input").value);$("barcode-input").value=code;$("scan-result").innerHTML="";
+  if(!validBarcode(code)||!validCheckDigit(code)){$("scan-result").innerHTML=notice("Code invalide : vérifiez le nombre de chiffres et la clé de contrôle. Formats acceptés : 8, 12, 13 ou 14 chiffres.","error");$("barcode-input").focus();return;}
+  $("lookup-barcode").disabled=true;$("lookup-barcode").textContent="Recherche…";
+  try{
+    const localProduct=await findProductByBarcode(code);
+    if(localProduct){await recordScan(code,localProduct.name);$("scan-result").innerHTML=productResult(localProduct,"Produit trouvé dans la bibliothèque de cet appareil.");if(localProduct.externalInfo)$("scan-result").innerHTML+=renderExternalProduct(localProduct,false);return;}
+    if(!navigator.onLine){await recordScan(code,"Inconnu — hors ligne");$("scan-result").innerHTML=notice("Produit absent de la base locale et téléphone hors ligne. Créez la fiche manuellement ou relancez la recherche avec Internet.","warn")+'<button id="create-unknown" type="button">Créer cette fiche</button>';$("create-unknown").onclick=()=>prefillProduct(code);return;}
+    if(isAndroidLocalFile()){
+      await recordScan(code,"Recherche Internet indisponible — fichier local");
+      $("scan-result").innerHTML=notice("Le téléphone ouvre encore le fichier HTML local. La lecture manuelle ou caméra peut fonctionner, mais les recherches distantes nécessitent une adresse HTTPS.","warn")+'<div class="actions" style="margin-top:10px"><button id="open-off-product" type="button">Consulter la base produit</button><button id="create-unknown" type="button" class="secondary">Créer cette fiche</button></div>';
+      $("open-off-product").onclick=()=>window.open("https://world.openfoodfacts.org/product/"+encodeURIComponent(code),"_blank","noopener");$("create-unknown").onclick=()=>prefillProduct(code);return;
+    }
+    $("scan-result").innerHTML=notice("Recherche dans le catalogue mondial multi-catégories : alimentation, beauté, produits et alimentation animale…");
+    const result=await fetchProductFromCatalog(code);
+    if(!result.found){await recordScan(code,"Non référencé dans les catalogues interrogés");$("scan-result").innerHTML=notice("Aucune fiche trouvée dans les bases Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts via la recherche multi-types. Cela ne prouve pas que le code est inexistant. Vérifiez éventuellement dans GS1.","warn")+'<div class="actions"><button id="open-gs1" type="button">Vérifier dans GS1</button><button id="create-unknown" type="button" class="secondary">Créer cette fiche</button></div>';$("open-gs1").onclick=()=>window.open("https://www.gs1.org/services/verified-by-gs1","_blank","noopener");$("create-unknown").onclick=()=>prefillProduct(code);return;}
+    const suggested=catalogProductToScanPrix(result.product,code,result.sourceDomain);
+    await recordScan(code,suggested.name||"Résultat Internet");
+    $("scan-result").innerHTML=notice("Fiche distante trouvée. Les données proviennent de la base indiquée ; vérifiez-les avant enregistrement.")+renderExternalProduct(suggested);
+         $("save-online-product").textContent="Traiter la fiche produit";
+     $("save-online-product").onclick=()=>{
+       if(!suggested.name){$("scan-result").innerHTML+=notice("Nom absent : complétez la fiche manuellement.","warn");}
+       showView("products");resetProductForm();$("product-form-panel").classList.remove("hide");pendingCatalogProduct=suggested;
+       $("p-barcode").value=suggested.barcode||"";
+       $("p-name").value=suggested.name||"";
+       $("p-brand").value=suggested.brand||"";
+       $("p-category").value=suggested.category||"";
+       $("p-description").value=suggested.description||"";
+       if(suggested.image){fetch(suggested.image,{mode:"cors",credentials:"omit"}).then(r=>{if(!r.ok)throw Error("Image distante indisponible");return r.blob();}).then(blob=>new Promise((resolve,reject)=>{const fr=new FileReader();fr.onload=()=>resolve(fr.result);fr.onerror=reject;fr.readAsDataURL(blob);})).then(dataUrl=>{productPhotoData=dataUrl;showProductPhoto(dataUrl);}).catch(()=>{productPhotoData=null;});}
+       $("p-source-notes").value="Source : "+(suggested.sourceUrl||suggested.source||"Catalogue distant")+". Vérifier les informations avant validation.";
+       $("product-form-title").textContent="Traiter et vérifier le produit avant enregistrement";
+       $("product-form-panel").scrollIntoView({behavior:"smooth"});
+     };
+  }catch(err){const reason=err.name==="AbortError"?"Délai de réponse dépassé.":(err instanceof TypeError||/failed to fetch|networkerror|load failed/i.test(err.message||""))?explainFetchFailure(err,location.protocol):(err.message||"Erreur inconnue");await recordScan(code,"Recherche Internet impossible");$("scan-result").innerHTML=notice("Code valide, mais la recherche distante n’a pas abouti : "+reason+" Vous pouvez créer la fiche manuellement.","warn")+'<button id="create-unknown" type="button">Créer cette fiche</button>';$("create-unknown").onclick=()=>prefillProduct(code);
+  }finally{$("lookup-barcode").disabled=false;$("lookup-barcode").textContent="Rechercher le produit";}
+}
+function productResult(p,message){return notice(message)+`<div class="result"><strong>${escapeHTML(p.name)}</strong><p>${escapeHTML(p.brand||"")}</p><p>${escapeHTML(p.description||"")}</p><p class="muted">Code : ${escapeHTML(p.barcode||"Non renseigné")} · ${escapeHTML([p.quantity,p.unit].filter(Boolean).join(" ")||"Conditionnement non précisé")}</p>${p.offerPrice!=null?`<p><strong>Offre prospectus : ${Number(p.offerPrice).toFixed(2)} ${escapeHTML(p.offerCurrency||"EUR")}</strong> · ${escapeHTML(p.unitPrice||"")}</p>`:""}<button id="go-add-price">Enregistrer un prix</button></div>`}
+function prefillProduct(code){showView("products");resetProductForm();$("p-barcode").value=code;$("product-form-panel").classList.remove("hide");$("product-form-panel").scrollIntoView({behavior:"smooth"});}
+async function recordScan(code,name){await put("scans",{id:uid(),code,productName:name,scannedAt:new Date().toISOString()});await refreshDashboard();}
+function extractBarcodeCandidates(text){
+  const source=String(text??"");
+  const matches=source.match(/(?:\d[\s.\-_/]*){8,14}/g)||[];
+  const found=[];
+  for(const raw of matches){
+    const code=String(raw).replace(/\D/g,"");
+    if(validBarcode(code)&&validCheckDigit(code)&&!found.includes(code))found.push(code);
+  }
+  return found;
+}
+async function processClipboardText(text,origin){
+  $("clipboard-text").value=String(text??"");
+  const candidates=extractBarcodeCandidates(text);
+  if(!candidates.length){
+    $("clipboard-status").innerHTML=notice("Aucun code-barres EAN/UPC valide détecté dans le contenu. Le texte a été conservé : vérifiez qu'il contient bien 8, 12, 13 ou 14 chiffres avec une clé de contrôle correcte.","warn");
+    return false;
+  }
+  const code=candidates[0];
+  $("barcode-input").value=code;
+  const extra=candidates.length>1?` Plusieurs codes valides ont été trouvés (${candidates.length}) ; le premier (${code}) est utilisé.`:"";
+  $("clipboard-status").innerHTML=notice(`Code ${code} extrait ${origin}. Recherche en cours.${extra}`);
+  await lookupBarcode();
+  return true;
+}
+async function loadTesseract(){
+  if(window.Tesseract)return window.Tesseract;
+  const mod=await import("https://esm.sh/tesseract.js@6.0.1");
+  if(!mod.createWorker)throw Error("Le moteur OCR n’est pas disponible.");
+  return mod;
+}
+async function readDigitsWithOCR(image){
+  // Secours OCR : certains visuels affichent le GTIN sous les barres, mais le lecteur optique ne décode pas les barres.
+  const canvas=document.createElement("canvas"),scale=Math.min(3,Math.max(2,1200/Math.max(image.naturalWidth||image.width, image.naturalHeight||image.height)));
+  canvas.width=Math.round((image.naturalWidth||image.width)*scale);canvas.height=Math.round((image.naturalHeight||image.height)*scale);
+  const ctx=canvas.getContext("2d",{willReadFrequently:true});ctx.drawImage(image,0,0,canvas.width,canvas.height);
+  const pixels=ctx.getImageData(0,0,canvas.width,canvas.height),d=pixels.data;
+  for(let i=0;i<d.length;i+=4){const gray=(d[i]*0.299+d[i+1]*0.587+d[i+2]*0.114);const v=gray>175?255:gray<115?0:Math.round((gray-115)*4.25);d[i]=d[i+1]=d[i+2]=v;}
+  ctx.putImageData(pixels,0,0);
+  const T=await loadTesseract();const worker=await T.createWorker("eng");
+  try{const result=await worker.recognize(canvas,{}) ;return result?.data?.text||"";}finally{await worker.terminate();}
+}
+async function decodeClipboardImage(blob,origin="depuis l’image du presse-papiers"){
+  if(!blob || !blob.type?.startsWith("image/")) throw Error("Le contenu fourni n’est pas une image.");
+  const url=URL.createObjectURL(blob);
+  try{
+    const preview=$("clipboard-image-preview");preview.src=url;preview.classList.remove("hide");
+    const image=new Image();image.src=url;await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(Error("Image impossible à ouvrir."));});
+    let codes=[];
+    if("BarcodeDetector" in window){
+      try{const formats= ["ean_8","ean_13","upc_a","upc_e","itf","code_128"],supported=await BarcodeDetector.getSupportedFormats?.();const detector=new BarcodeDetector({formats:supported?formats.filter(x=>supported.includes(x)):formats});const hits=await detector.detect(image);codes.push(...hits.map(x=>x.rawValue||""));}catch(e){}
+    }
+    if(!codes.some(x=>extractBarcodeCandidates(x).length)){
+      try{const ZX=await loadZXing();const reader=new ZX.BrowserMultiFormatReader();const result=await reader.decodeFromImageElement(image);if(result?.getText)codes.push(result.getText());}catch(e){}
+    }
+    let candidates=[...new Set(codes.flatMap(x=>extractBarcodeCandidates(x)))];
+    let method="lecture du code-barres";
+    if(!candidates.length){
+      try{const ocrText=await readDigitsWithOCR(image);candidates=extractBarcodeCandidates(ocrText);method="lecture OCR des chiffres imprimés sur l’image";}catch(e){console.warn("OCR indisponible",e);}
+    }
+    if(!candidates.length)throw Error("Aucun code EAN/UPC valide n’a pu être lu. ScanPrix a essayé la lecture des barres puis la reconnaissance des chiffres imprimés. Essayez une image plus nette, rapprochée et sans reflet.");
+    const code=candidates[0];$("barcode-input").value=code;
+    $("clipboard-status").innerHTML=notice(`Code ${code} extrait ${origin} (${method}). Recherche en cours.${candidates.length>1?` ${candidates.length} codes valides trouvés ; le premier est utilisé.`:""}`);
+    await lookupBarcode();return true;
+  }finally{URL.revokeObjectURL(url);}
+}
+async function handleClipboardItems(items,origin){
+  for(const item of items||[]){
+    const imageType=[...(item.types||[])].find(t=>t.startsWith("image/"));
+    if(imageType){const blob=await item.getType(imageType);return decodeClipboardImage(blob,origin);}
+  }
+  for(const item of items||[]){
+    const textType=[...(item.types||[])].find(t=>t==="text/plain"||t==="text/html");
+    if(textType){const blob=await item.getType(textType);const txt=await blob.text();if(txt)return processClipboardText(txt,origin);}
+  }
+  throw Error("Le presse-papiers ne contient ni image ni texte exploitable.");
+}
+async function readClipboardAndSearch(){
+  const button=$("read-clipboard");button.disabled=true;button.textContent="Lecture…";
+  try{
+    if(navigator.clipboard?.read){const items=await navigator.clipboard.read();await handleClipboardItems(items,"depuis le presse-papiers");}
+    else if(navigator.clipboard?.readText){const text=await navigator.clipboard.readText();if(!text)throw Error("Presse-papiers vide ou contenant une image non accessible par ce navigateur.");await processClipboardText(text,"depuis le presse-papiers");}
+    else{$("clipboard-status").innerHTML=notice("Lecture directe non disponible. Collez une image dans la zone ci-dessus avec Ctrl+V ou choisissez un fichier image.","warn");$("clipboard-image-zone").focus();}
+  }catch(err){const reason=err?.name==="NotAllowedError"?"Le navigateur a refusé l’accès au presse-papiers.":(err?.message||"Accès indisponible.");$("clipboard-status").innerHTML=notice(reason+" Collez l’image dans la zone ou choisissez un fichier image.","warn");}
+  finally{button.disabled=false;button.textContent="Lire le presse-papiers (texte ou image)";}
+}
+$("read-clipboard").onclick=readClipboardAndSearch;
+$("extract-clipboard").onclick=async()=>{
+ const button=$("extract-clipboard");button.disabled=true;button.textContent="Lecture OCR des chiffres…";
+ try{
+  const text=$("clipboard-text").value||"",preview=$("clipboard-image-preview");
+  let ocrCandidates=[];
+  if(preview&&!preview.classList.contains("hide")&&preview.src){
+   const image=new Image();image.src=preview.src;
+   await new Promise((resolve,reject)=>{if(image.complete&&image.naturalWidth)resolve();else{image.onload=resolve;image.onerror=()=>reject(Error("Image du code-barres impossible à ouvrir."));}});
+   const ocrText=await readDigitsWithOCR(image);
+   ocrCandidates=extractBarcodeCandidates(ocrText).filter(code=>validBarcode(code)&&validCheckDigit(code));
+  }
+  const textCandidates=extractBarcodeCandidates(text).filter(code=>validBarcode(code)&&validCheckDigit(code));
+  const candidates=[...new Set([...ocrCandidates,...textCandidates])];
+  if(!candidates.length){
+   $("clipboard-status").innerHTML=notice(preview&&!preview.classList.contains("hide")?"L’OCR n’a pas reconnu de série EAN/UPC valide. Vérifiez la netteté, le cadrage et les chiffres imprimés sous le code-barres.":"Aucun code EAN/UPC valide détecté. Collez une image du code-barres ou un texte contenant la série de chiffres.","warn");
+   return;
+  }
+  const code=candidates[0];$("barcode-input").value=code;
+  const source=ocrCandidates.includes(code)?"par OCR de la série de chiffres imprimée":"dans le texte collé";
+  $("clipboard-status").innerHTML=notice(`Code ${code} extrait ${source}. Clé de contrôle vérifiée. Recherche en cours.${candidates.length>1?` ${candidates.length} codes valides trouvés ; le premier est utilisé.`:""}`);
+  await lookupBarcode();
+ }catch(err){
+  $("clipboard-status").innerHTML=notice("Échec de la lecture OCR : "+(err.message||"erreur inconnue")+". Vous pouvez saisir le code manuellement.","warn");
+ }finally{button.disabled=false;button.textContent="Extraire le code et rechercher";}
+};
+$("clipboard-text").addEventListener("paste",()=>setTimeout(()=>{const candidates=extractBarcodeCandidates($("clipboard-text").value);if(candidates.length)$("clipboard-status").innerHTML=notice(`Code détecté : ${candidates[0]}. Appuyez sur « Extraire le code et rechercher » pour lancer la recherche.`);},0));
+$("clipboard-image-zone").addEventListener("paste",async e=>{const items=[...(e.clipboardData?.items||[])];if(items.some(i=>i.type?.startsWith("image/"))){e.preventDefault();try{const imageItem=items.find(i=>i.type.startsWith("image/"));await decodeClipboardImage(imageItem.getAsFile(),"depuis l’image collée");}catch(err){$("clipboard-status").innerHTML=notice(err.message||"Lecture de l’image impossible.","warn");}}else if(e.clipboardData?.getData("text")){e.preventDefault();await processClipboardText(e.clipboardData.getData("text"),"depuis le texte collé");}});
+$("clipboard-image-file").addEventListener("change",async e=>{const file=e.target.files?.[0];if(file){try{await decodeClipboardImage(file,"depuis le fichier image");}catch(err){$("clipboard-status").innerHTML=notice(err.message||"Lecture de l’image impossible.","warn");}finally{e.target.value="";}}});
+$("lookup-barcode").onclick=lookupBarcode;$("barcode-input").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();lookupBarcode();}});$("barcode-input").addEventListener("blur",e=>{e.target.value=normalizeBarcode(e.target.value);});
+document.addEventListener("click",e=>{if(e.target.id==="go-add-price"){showView("prices");}});
+let zxingControls=null,zxingReader=null;
+async function loadZXing(){
+  if(window.ZXingBrowser)return window.ZXingBrowser;
+  const mod=await import("https://esm.sh/@zxing/browser@0.2.1");
+  if(!mod.BrowserMultiFormatReader)throw Error("Le moteur ZXing n’a pas fourni le lecteur multi-format.");
+  return mod;
+}
+function acceptCameraCode(code){const now=Date.now();if(!code||!validBarcode(normalizeBarcode(code))||!validCheckDigit(normalizeBarcode(code))||(code===lastDetected&&now-lastDetectedAt<2500))return false;lastDetected=code;lastDetectedAt=now;$("barcode-input").value=normalizeBarcode(code);stopCamera();lookupBarcode();return true;}
+async function startCamera(){
+ const video=$("video"),start=$("start-camera"),stop=$("stop-camera"),result=$("scan-result");
+ // getUserMedia est réservé aux contextes sécurisés : HTTPS (ou localhost).
+ if(!window.isSecureContext||!navigator.mediaDevices||typeof navigator.mediaDevices.getUserMedia!=="function"){
+   const context=location.protocol==="https:"?"HTTPS détecté, mais l’accès caméra n’est pas exposé par ce navigateur/contexte.":"La page n’est pas en HTTPS. Android bloque généralement la caméra sur une adresse HTTP ou un fichier local.";
+   result.innerHTML=notice(context+" Ouvrez l’adresse HTTPS directement dans Chrome, pas dans un aperçu intégré.","error");
+   return;
+ }
+ if(stream||zxingControls)stopCamera();
+ start.disabled=true;stop.disabled=true;
+ result.innerHTML=notice("Android : demande d’accès à la caméra…");
+ video.muted=true;video.autoplay=true;video.setAttribute("playsinline","");video.setAttribute("webkit-playsinline","");
+ let cameraError=null;
+ try{
+   // Sur Android, privilégier la caméra arrière sans imposer de résolution ni de fréquence.
+   // Si la contrainte de caméra arrière échoue, réessayer avec la caméra par défaut.
+   const requests=[
+     {audio:false,video:{facingMode:{ideal:"environment"}}},
+     {audio:false,video:true}
+   ];
+   for(let i=0;i<requests.length;i++){
+     try{stream=await navigator.mediaDevices.getUserMedia(requests[i]);break;}
+     catch(err){cameraError=err;
+       // Une permission refusée ou une caméra occupée ne sera pas corrigée par un second appel.
+       if(["NotAllowedError","SecurityError","NotReadableError","AbortError"].includes(err?.name))throw err;
+     }
+   }
+   if(!stream)throw cameraError||new Error("Le navigateur n’a fourni aucun flux caméra.");
+   const track=stream.getVideoTracks()[0];
+   if(!track||track.readyState!=="live")throw new Error("Le flux caméra n’est pas actif.");
+   cameraTrack=track;torchEnabled=false;zoomCapability=null;
+   video.srcObject=stream;video.style.display="block";$("scanner-hint").classList.add("hide");
+   // Attendre les métadonnées puis la première image : Android peut retarder ces événements.
+   await new Promise((resolve,reject)=>{
+     let settled=false;
+     const finish=(err)=>{if(settled)return;settled=true;clearTimeout(timer);video.removeEventListener("loadedmetadata",check);video.removeEventListener("loadeddata",check);video.removeEventListener("error",onerror);err?reject(err):resolve();};
+     const check=()=>{if(video.videoWidth>0&&video.videoHeight>0)finish();};
+     const onerror=()=>finish(new Error("Android a ouvert le flux, mais la vidéo ne peut pas être affichée."));
+     const timer=setTimeout(()=>finish(new Error("La caméra est autorisée, mais aucune image n’est arrivée après 12 secondes. Fermez les autres applications utilisant la caméra et réessayez.")),12000);
+     video.addEventListener("loadedmetadata",check);video.addEventListener("loadeddata",check);video.addEventListener("error",onerror);
+     check();
+   });
+   await video.play();
+   if(video.videoWidth<=0)throw new Error("Le flux est ouvert, mais Android ne fournit aucune image vidéo.");
+   stop.disabled=false;
+   // Les fonctions avancées sont facultatives : leur absence ne doit jamais bloquer le scanner.
+   try{
+     const caps=track.getCapabilities?track.getCapabilities():{};
+     const settings=track.getSettings?track.getSettings():{};
+     const advanced=[];
+     if(caps.focusMode?.includes("continuous"))advanced.push({focusMode:"continuous"});
+     if(caps.exposureMode?.includes("continuous"))advanced.push({exposureMode:"continuous"});
+     if(advanced.length){try{await track.applyConstraints({advanced});}catch(e){console.debug("Mise au point continue non disponible",e);}}
+     const torch=$("torch-toggle"),zoom=$("zoom-control"),slider=$("camera-zoom"),note=$("camera-capability-note");
+     if(caps.torch){torch.hidden=false;torch.disabled=false;}else{torch.hidden=true;torch.disabled=true;}
+     if(caps.zoom){zoomCapability=caps.zoom;slider.min=String(caps.zoom.min||1);slider.max=String(caps.zoom.max||3);slider.step=String(caps.zoom.step||0.1);slider.value=String(Math.min(caps.zoom.max||3,Math.max(caps.zoom.min||1,settings.zoom||1)));zoom.hidden=false;}else{zoomCapability=null;zoom.hidden=true;}
+     note.textContent=(caps.focusMode?.includes("continuous")?"Mise au point continue. ":"")+(caps.torch?"Lampe disponible. ":"")+(caps.zoom?"Zoom matériel disponible. ":"");
+   }catch(capabilityError){console.debug("Fonctions caméra avancées ignorées",capabilityError);}
+   const cameraName=track.label?" ("+track.label+")":"";
+   // Lecteur natif si disponible, sinon ZXing sur le flux déjà ouvert.
+   if("BarcodeDetector" in window){
+     try{
+       const supported=await BarcodeDetector.getSupportedFormats();
+       const wanted=["ean_13","ean_8","upc_a","upc_e","code_128","code_39","itf","qr_code","data_matrix"];
+       const formats=wanted.filter(x=>supported.includes(x));
+       if(formats.length){const detector=new BarcodeDetector({formats});scanLoop=true;result.innerHTML=notice("Caméra Android active"+cameraName+". Présentez le code-barres.");scanFrame(detector);return;}
+     }catch(nativeError){console.debug("BarcodeDetector non disponible, bascule ZXing",nativeError);}
+   }
+   try{
+     const ZX=await loadZXing();
+     if(typeof ZX.BrowserMultiFormatReader!=="function")throw new Error("Bibliothèque ZXing incompatible.");
+     zxingReader=new ZX.BrowserMultiFormatReader();
+     zxingControls=await zxingReader.decodeFromStream(stream,video,(code,err)=>{if(code)acceptCameraCode(code.getText());});
+     result.innerHTML=notice("Caméra Android active"+cameraName+". Lecteur ZXing prêt.");
+   }catch(zxingError){
+     result.innerHTML=notice("La caméra fonctionne et l’image est visible, mais le lecteur de codes-barres n’a pas démarré : "+(zxingError.message||zxingError)+". Vérifiez la connexion Internet puis rechargez ScanPrix.","error");
+     stop.disabled=false;
+   }
+ }catch(err){
+   stopCamera();
+   const name=err?.name||"Erreur";let detail=err?.message||String(err);
+   if(name==="NotAllowedError"||name==="SecurityError")detail="Android ou Chrome refuse l’autorisation. Vérifiez l’autorisation Caméra pour le site dans les paramètres du navigateur, puis rechargez la page HTTPS.";
+   else if(name==="NotReadableError")detail="La caméra est autorisée mais déjà utilisée ou bloquée. Fermez Appareil photo, WhatsApp, les autres onglets et toute application utilisant la caméra, puis réessayez.";
+   else if(name==="NotFoundError")detail="Aucune caméra détectée par Android.";
+   else if(name==="OverconstrainedError")detail="La caméra ne satisfait pas les contraintes demandées. Réessayez après avoir fermé les autres applications caméra.";
+   else if(name==="AbortError")detail="Android a interrompu l’ouverture de la caméra. Relancez le scanner.";
+   const environment="Protocole : "+location.protocol+" · Contexte sécurisé : "+(window.isSecureContext?"oui":"non")+" · Navigateur : "+( /Android/i.test(navigator.userAgent)?"Android":"non identifié Android");
+   result.innerHTML=notice("Activation impossible ("+name+") : "+detail+" "+environment,"error");
+ }finally{start.disabled=false;}
+}
+async function scanFrame(detector){if(!scanLoop)return;if(scanBusy){setTimeout(()=>scanFrame(detector),120);return;}scanBusy=true;try{const codes=await detector.detect($("video"));for(const item of codes||[]){if(acceptCameraCode(item.rawValue))return;}}catch(e){console.debug("Échec ponctuel de détection",e);}finally{scanBusy=false;}if(scanLoop)setTimeout(()=>scanFrame(detector),120);}
+function stopCamera(){scanLoop=false;scanBusy=false;if(zxingControls){try{zxingControls.stop();}catch(e){}zxingControls=null;}if(stream){stream.getTracks().forEach(t=>{try{t.stop();}catch(e){}});stream=null;}cameraTrack=null;zxingReader=null;torchEnabled=false;const torch=$("torch-toggle");torch.hidden=true;torch.disabled=true;torch.setAttribute("aria-pressed","false");torch.textContent="Activer la lampe";$("zoom-control").hidden=true;$("camera-capability-note").textContent="";$("video").pause?.();$("video").srcObject=null;$("video").style.display="none";$("scanner-hint").classList.remove("hide");$("start-camera").disabled=false;$("stop-camera").disabled=true;} 
+async function toggleTorch(){if(!cameraTrack)return;const caps=cameraTrack.getCapabilities?.()||{};if(!caps.torch)return;try{torchEnabled=!torchEnabled;await cameraTrack.applyConstraints({advanced:[{torch:torchEnabled}]});$("torch-toggle").setAttribute("aria-pressed",String(torchEnabled));$("torch-toggle").textContent=torchEnabled?"Éteindre la lampe":"Activer la lampe";}catch(e){torchEnabled=false;$("camera-capability-note").textContent="Lampe non prise en charge par ce navigateur ou cet appareil.";}}
+async function setCameraZoom(value){if(!cameraTrack||!zoomCapability)return;const zoom=Math.min(Number(zoomCapability.max||3),Math.max(Number(zoomCapability.min||1),Number(value)));try{await cameraTrack.applyConstraints({advanced:[{zoom}]});}catch(e){$("camera-capability-note").textContent="Zoom matériel indisponible sur cet appareil.";}}
+$("start-camera").onclick=startCamera;$("stop-camera").onclick=stopCamera;$("torch-toggle").onclick=toggleTorch;$("camera-zoom").addEventListener("input",e=>setCameraZoom(e.target.value));window.addEventListener("pagehide",stopCamera);
+$("export-json").onclick=async()=>{const data={app:"ScanPrix",schemaVersion:1,exportedAt:new Date().toISOString(),data:{}};for(const s of STORES)data.data[s]=await all(s);const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="ScanPrix_sauvegarde_"+today()+".json";a.click();URL.revokeObjectURL(url);};
+function validateBackupData(data){
+ if(!data||data.app!=="ScanPrix"||!data.data||typeof data.data!=="object")throw Error("Fichier ScanPrix non reconnu.");
+ if(data.schemaVersion!==1)throw Error("Version de sauvegarde non prise en charge.");
+ for(const name of STORES)if(!Array.isArray(data.data[name]))throw Error("Table absente ou invalide : "+name);
+ const products=data.data.products,stores=data.data.stores,barcodes=data.data.barcodes,prices=data.data.prices,scans=data.data.scans;
+ const ids=new Set();for(const p of products){if(!p||typeof p!=="object"||!String(p.id||"").trim()||!String(p.name||"").trim())throw Error("Produit invalide : identifiant ou nom manquant.");if(ids.has(p.id))throw Error("Identifiant produit dupliqué : "+p.id);ids.add(p.id);if(p.barcode){const code=normalizeBarcode(p.barcode);if(!validBarcode(code)||!validCheckDigit(code))throw Error("Code-barres invalide pour le produit "+p.name);}}
+ const storeIds=new Set();for(const x of stores){if(!x||!String(x.id||"").trim()||!String(x.name||"").trim()||storeIds.has(x.id))throw Error("Magasin invalide ou identifiant dupliqué.");storeIds.add(x.id);}
+ const barcodeSet=new Map();for(const b of barcodes){if(!b||!String(b.code||"").trim()||!ids.has(b.productId))throw Error("Association code-barres/produit invalide.");const k=normalizeBarcode(b.code);if(!validBarcode(k)||!validCheckDigit(k))throw Error("Code-barres invalide : "+k);if(barcodeSet.has(k))throw Error("Code-barres dupliqué dans la sauvegarde : "+k);barcodeSet.set(k,b.productId);}
+ // Cohérence dans les deux sens : chaque code porté par une fiche doit avoir exactement la même association.
+ for(const p of products){const code=normalizeBarcode(p.barcode||"");if(code&&barcodeSet.get(code)!==p.id)throw Error("La fiche « "+p.name+" » indique le code "+code+" mais la table des associations ne le relie pas à ce produit.");}
+ for(const [code,productId] of barcodeSet){const product=products.find(p=>p.id===productId);if(!product)throw Error("Produit absent pour le code-barres "+code);if(normalizeBarcode(product.barcode||"")!==code)throw Error("Association incohérente : le code "+code+" n'est pas celui de la fiche produit « "+product.name+" ».");}
+ const priceIds=new Set();for(const x of prices){if(!x||!String(x.id||"").trim()||priceIds.has(x.id)||!ids.has(x.productId)||!storeIds.has(x.storeId)||!Number.isFinite(Number(x.amount))||Number(x.amount)<0||!/^\d{4}-\d{2}-\d{2}$/.test(x.date||"")||!Number.isFinite(Date.parse(x.date+"T00:00:00Z")))throw Error("Relevé de prix invalide, identifiant dupliqué ou référence absente.");priceIds.add(x.id);}
+ const scanIds=new Set();for(const x of scans){if(!x||!String(x.id||"").trim()||scanIds.has(x.id))throw Error("Historique de scan invalide : identifiant manquant ou dupliqué.");scanIds.add(x.id);const code=normalizeBarcode(x.code);if(!validBarcode(code)||!validCheckDigit(code))throw Error("Code-barres invalide dans l'historique de scan : "+String(x.code||"(vide)"));if(!String(x.productName||"").trim())throw Error("Nom ou résultat manquant dans l'historique du scan "+x.id);if(!x.scannedAt||!Number.isFinite(Date.parse(x.scannedAt)))throw Error("Date invalide dans l'historique du scan "+x.id);}
+ return true;
+}
+function uniqueRows(rows,keyOf,label){const m=new Map();for(const row of rows){const k=keyOf(row);if(!k)throw Error(label+" sans identifiant.");if(m.has(k)&&JSON.stringify(m.get(k))!==JSON.stringify(row))throw Error("Conflit de doublon dans "+label+" : "+k);m.set(k,row);}return m;}
+async function validateBackupAgainstLocal(data){
+ const local={};for(const name of STORES)local[name]=await all(name);
+ const keyFor=name=>row=>name==="barcodes"?normalizeBarcode(row.code):row.id;
+ const merged={};
+ for(const name of STORES){const localMap=uniqueRows(local[name],keyFor(name),name+" locale"),incomingMap=uniqueRows(data.data[name],keyFor(name),name+" importée");
+  for(const [key,row] of incomingMap){const current=localMap.get(key);if(current&&name==="barcodes"&&current.productId!==row.productId)throw Error("Conflit de code-barres "+key+" : déjà associé au produit local "+current.productId+", différent du produit importé "+row.productId+".");if(current&&(name==="scans"||name==="prices")&&JSON.stringify(current)!==JSON.stringify(row))throw Error("Conflit d'identifiant dans "+name+" : "+key+". Import refusé pour préserver l'historique local.");}
+  const combined=new Map(localMap);for(const [key,row] of incomingMap)if(!combined.has(key))combined.set(key,row);merged[name]=[...combined.values()];
+ }
+ // Les fiches produits locales restent prioritaires ; une sauvegarde ne peut pas réaffecter silencieusement leur code.
+ const mergedData={app:"ScanPrix",schemaVersion:1,data:merged};validateBackupData(mergedData);return {local,merged};
+}
+$("import-json").onclick=async()=>{
+ const f=$("import-file").files[0];if(!f){$("backup-message").innerHTML=notice("Sélectionnez un fichier JSON.","warn");return;}
+ try{
+  const data=JSON.parse(await f.text());validateBackupData(data);
+  const checked=await validateBackupAgainstLocal(data);
+  const transaction=db.transaction(STORES,"readwrite");
+  for(const name of STORES){const store=transaction.objectStore(name);const localMap=new Map(checked.local[name].map(row=>[name==="barcodes"?normalizeBarcode(row.code):row.id,row]));
+   for(const row of data.data[name]){const key=name==="barcodes"?normalizeBarcode(row.code):row.id;const current=localMap.get(key);
+    if(!current)store.put(row);
+    else if(name==="products")store.put({...row,...current,catalogOffers:[...(row.catalogOffers||[]),...(current.catalogOffers||[])].filter((v,i,a)=>a.findIndex(z=>JSON.stringify(z)===JSON.stringify(v))===i)});
+   }
+  }
+  await new Promise((resolve,reject)=>{transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error);transaction.onabort=()=>reject(transaction.error||Error("Import annulé"));});
+  await refreshAll();$("backup-message").innerHTML=notice("Sauvegarde validée et fusionnée. Les conflits de codes-barres et d'historique ont été contrôlés ; les données locales préexistantes ont été préservées.");
+ }catch(err){$("backup-message").innerHTML=notice("Importation refusée sans modification : "+err.message,"error");}
+};
+$("run-tests").onclick=async()=>{
+ const results=[];const test=(name,ok,detail="")=>results.push({name,ok,detail});
+ test("IndexedDB disponible",!!window.indexedDB);
+ test("Base ouverte",!!db);
+ test("Tables attendues",STORES.every(s=>db.objectStoreNames.contains(s)));
+ test("Validation code EAN-13 et clé correcte",validBarcode("4006381333931")&&validCheckDigit("4006381333931"));
+  test("Code demandé 6001298899714 : format et clé",validBarcode("6001298899714")&&validCheckDigit("6001298899714"),"EAN-13 valide");
+  test("Normalisation espaces et tirets",normalizeBarcode("6001 2988-99714")==="6001298899714");
+  test("HTTP 404 classé produit absent",classifyProductResponse(404,null)==="not_found");
+  test("HTTP 503 classé panne serveur",classifyProductResponse(503,null)==="service_error");
+  test("Réponse API avec produit classée trouvée",classifyProductResponse(200,{status:"success",product:{product_name:"Test"}})==="found");
+  test("Refus des longueurs non prises en charge",!validBarcode("123456789")&&!validBarcode("12345678901"));
+ test("Validation EAN-8",validCheckDigit("96385074"));
+ test("Validation UPC-E",validCheckDigit("04252614"));
+ test("Refus d'une clé de contrôle erronée",!validCheckDigit("4006381333932"));
+ test("Refus d'un code trop court",!validBarcode("12345"));
+ test("Refus de lettres",!validBarcode("ABC123456789"));
+ test("Protection contre injection HTML",escapeHTML("<script>")!=="<script>"&&escapeHTML("<script>").includes("&lt;"));
+ test("Calcul monétaire",money(12.5).includes("12,50"));
+ const catalogFixture=`Produits en promotion\nSaucisson cuit à l'ail Jean Caby\nLEADER PRICE\nSaucisson cuit à l'ail Jean Caby\nJean Caby\n1,79 €\nLEADER PRICE CILAOS\nJusqu’au 29 novembre 2026\nTerrine de lapin à l'Armagnac Les Trois Chefs\nLEADER PRICE\nTerrine de lapin à l'Armagnac Les Trois Chefs\nLes Trois Chefs\n1,95 €\nLEADER PRICE CILAOS\nJusqu’au 29 novembre 2026\nPâté de foie de volaille Créolay\nU EXPRESS\nPâté de foie de volaille Créolay\nCréolay\n1,99 €\nU Express CILAOS\nJusqu’au 29 novembre 2026\nProduit de charcuterie Créolay\nU EXPRESS\nProduit de charcuterie Créolay\nCréolay\nU Express CILAOS\nJusqu’au 29 novembre 2026`;
+ const parsedFixture=parseCatalogText(catalogFixture);
+ test("Import catalogue : 4 fiches de test détectées",parsedFixture.length===4,"Détection " + parsedFixture.length + "/4");
+ test("Import catalogue : prix du premier produit",parsedFixture[0]?.price===1.79,"Prix attendu : 1,79 EUR");
+ test("Import catalogue : marque conservée",parsedFixture[0]?.brand==="Jean Caby","Marque attendue : Jean Caby");
+ test("Import catalogue : magasin et enseigne",parsedFixture[0]?.chain==="LEADER PRICE"&&parsedFixture[0]?.store==="LEADER PRICE CILAOS");
+ test("Import catalogue : date ISO",parsedFixture[0]?.offerEnd==="2026-11-29","Date attendue : 2026-11-29");
+ test("Import catalogue : produit sans prix conservé",parsedFixture[3]?.price===null,"Le produit sans prix doit rester importable");
+ test("Import catalogue : devise détectée",parsedFixture[0]?.currency==="EUR");
+ const catalog41="Produits en promotion\n"+Array.from({length:41},(_,i)=>{const n="Produit test catalogue "+String(i+1).padStart(2,"0"),brand="Marque test "+(i%5+1),chain=i%2?"U EXPRESS":"LEADER PRICE",store=i%2?"U Express CILAOS":"LEADER PRICE CILAOS",price=i===40?"":`${(1+i/10).toFixed(2).replace(".",",")} €`;return `${n}\n${chain}\n${n}\n${brand}\n${price?price+"\n":""}${store}\nJusqu’au 29 novembre 2026`;}).join("\n");
+ const parsed41=parseCatalogText(catalog41);
+ test("Import catalogue : charge de 41 produits",parsed41.length===41,"Détection " + parsed41.length + "/41");
+ test("Import catalogue : les deux enseignes sont séparées",parsed41.some(x=>x.chain==="LEADER PRICE")&&parsed41.some(x=>x.chain==="U Express"));
+ test("Import catalogue : absence de prix non inventée",parsed41[40]?.price===null);
+ const [ps,bs,ss,pr,sc]=await Promise.all(STORES.map(all));
+ test("Produits sans identifiant manquant",ps.every(x=>!!x.id&&!!x.name));
+ test("Codes-barres sans doublon",new Set(bs.map(x=>x.code)).size===bs.length);
+ test("Références code-barres cohérentes",bs.every(x=>ps.some(p=>p.id===x.productId)));
+ test("Relevés associés à un produit",pr.every(x=>ps.some(p=>p.id===x.productId)));
+ test("Relevés associés à un magasin",pr.every(x=>ss.some(s=>s.id===x.storeId)));
+ test("Prix numériques non négatifs",pr.every(x=>Number.isFinite(x.amount)&&x.amount>=0));
+ test("Dates des relevés présentes",pr.every(x=>/^\d{4}-\d{2}-\d{2}$/.test(x.date)));
+ $("test-results").innerHTML=results.map(x=>`<div class="testrow"><span>${x.ok?"✓":"✕"} ${escapeHTML(x.name)} ${x.detail?'<span class="muted">'+escapeHTML(x.detail)+'</span>':""}</span><span class="${x.ok?"price":"muted"}">${x.ok?"OK":"ÉCHEC"}</span></div>`).join("")+notice(results.filter(x=>x.ok).length+" / "+results.length+" tests réussis.",results.every(x=>x.ok)?"":"error");
+};
+$("run-load-tests").onclick=async()=>{
+ const button=$("run-load-tests");button.disabled=true;button.textContent="Test en cours…";
+ const lines=[];const report=(name,ok,detail="")=>lines.push({name,ok,detail});
+ const testDBName="ScanPrix_StressTest_Temporary";
+ let testDB=null;
+ try{
+  await new Promise((resolve,reject)=>{
+   const delReq=indexedDB.deleteDatabase(testDBName);
+   delReq.onsuccess=resolve;delReq.onerror=()=>reject(delReq.error);
+   delReq.onblocked=()=>reject(Error("Base de test temporaire déjà ouverte."));
+  });
+  testDB=await new Promise((resolve,reject)=>{
+   const req=indexedDB.open(testDBName,1);
+   req.onupgradeneeded=()=>{
+    const d=req.result;
+    d.createObjectStore("products",{keyPath:"id"});
+    d.createObjectStore("stores",{keyPath:"id"});
+    const prices=d.createObjectStore("prices",{keyPath:"id"});
+    prices.createIndex("productId","productId");prices.createIndex("storeId","storeId");
+   };
+   req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);
+  });
+  const started=performance.now();
+  await new Promise((resolve,reject)=>{
+   const t=testDB.transaction(["products","stores","prices"],"readwrite");
+   const products=t.objectStore("products"),stores=t.objectStore("stores"),prices=t.objectStore("prices");
+   stores.put({id:"stress-store-1",name:"Magasin test"});
+   for(let i=0;i<1000;i++)products.put({id:"stress-p-"+i,name:"Produit test "+i,barcode:String(1000000000000+i)});
+   for(let i=0;i<10000;i++)prices.put({id:"stress-price-"+i,productId:"stress-p-"+(i%1000),storeId:"stress-store-1",amount:(i%500)+1,date:"2026-11-17"});
+   t.oncomplete=resolve;t.onerror=()=>reject(t.error);t.onabort=()=>reject(t.error||Error("Transaction de charge annulée"));
+  });
+  const elapsed=Math.round(performance.now()-started);
+  const [products,stores,prices]=await Promise.all(["products","stores","prices"].map(name=>new Promise((resolve,reject)=>{const r=testDB.transaction(name).objectStore(name).count();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);})));
+  report("Insertion de 1 000 produits",products===1000,products+" enregistrés");
+  report("Insertion de 10 000 relevés",prices===10000,prices+" enregistrés");
+  report("Magasin de test",stores===1,stores+" enregistré");
+  const sample=await new Promise((resolve,reject)=>{const r=testDB.transaction("prices").objectStore("prices").get("stress-price-9999");r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
+  report("Lecture d'un relevé ciblé",!!sample&&sample.productId==="stress-p-999",sample?"Référence cohérente":"Relevé introuvable");
+  report("Durée insertion",true,elapsed+" ms (mesure locale, navigateur actuel)");
+ }catch(err){report("Test de charge",false,err.message);}
+ finally{
+  if(testDB){testDB.close();testDB=null;}
+  try{await new Promise((resolve,reject)=>{const r=indexedDB.deleteDatabase(testDBName);r.onsuccess=resolve;r.onerror=()=>reject(r.error);r.onblocked=()=>reject(Error("Suppression de la base temporaire bloquée"));});report("Nettoyage base temporaire",true,"Base de test supprimée.");}
+  catch(err){report("Nettoyage base temporaire",false,err.message);}
+  $("test-results").innerHTML=lines.map(x=>`<div class="testrow"><span>${x.ok?"✓":"✕"} ${escapeHTML(x.name)} <span class="muted">${escapeHTML(x.detail)}</span></span><strong class="${x.ok?"price":"muted"}">${x.ok?"OK":"ÉCHEC"}</strong></div>`).join("")+notice(lines.filter(x=>x.ok).length+" / "+lines.length+" contrôles réussis.",lines.every(x=>x.ok)?"":"error");
+  button.disabled=false;button.textContent="Test de charge";
+ }
+};
+
+// Importation de catalogues textuels (LAPUB.RE et formats proches).
+let parsedCatalogRows=[];
+const normalizeCatalogKey=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+function parseCatalogDate(text){
+ const m=String(text||"").match(/jusqu.{0,3}au\s+(\d{1,2})\s+([a-zéûîôàèùç]+)\s+(\d{4})/i);
+ if(!m)return "";
+ const months={janvier:1,fevrier:2,mars:3,avril:4,mai:5,juin:6,juillet:7,aout:8,septembre:9,octobre:10,novembre:11,decembre:12};
+ const key=m[2].normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();const mo=months[key];
+ const day=Number(m[1]),year=Number(m[3]);
+ if(!mo||year<2000||year>2100)return "";
+ const d=new Date(Date.UTC(year,mo-1,day));
+ return d.getUTCFullYear()===year&&d.getUTCMonth()===mo-1&&d.getUTCDate()===day?`${year}-${String(mo).padStart(2,"0")}-${String(day).padStart(2,"0")}`:"";
+}
+function parseCatalogPrice(text){
+ const lines=String(text||"").split(/\n/).map(x=>x.trim()).filter(Boolean);
+ const candidates=[];
+ for(let i=0;i<lines.length;i++){
+  const line=lines[i];
+  if(/\b(au\s*kilo|\/\s*kg|kg\s*\b|par\s*dose|\/dose|prix\s*au|prix\s*par\s*lavage|soit\s+le)\b/i.test(line))continue;
+  const m=line.match(/(?:^|[^\d])([0-9]{1,5})[,.]([0-9]{2})\s*(€|EUR|Rs\.?|MUR)?\s*$/i);
+  if(m){const value=Number(m[1]+"."+m[2]);if(Number.isFinite(value)&&value>=0)candidates.push({value,line,index:i,currency:/€|EUR/i.test(m[3]||"")?"EUR":/Rs|MUR/i.test(m[3]||"")?"MUR":""});}
+ }
+ // Prefer a clearly labelled promotional/cash price; otherwise accept only one standalone price.
+ const labelled=candidates.filter(x=>/prix\s*(en\s*caisse|promo|promotionnel|offre)|en\s*caisse|prix\s*sp[eé]cial/i.test(x.line));
+ if(labelled.length===1)return labelled[0].value;
+ if(candidates.length===1)return candidates[0].value;
+ return null; // ambiguous amounts are deliberately not guessed
+}
+function parseCatalogText(raw){
+ const lines=String(raw||"").replace(/\r/g,"").split("\n").map(x=>x.replace(/[\t ]+/g," ").trim()).filter(Boolean);
+ const rows=[];let block=[];let globalDate="",inProducts=false;
+ const chains=/^(LEADER\s*PRICE|U\s*EXPRESS|SUPER\s*U|HYPER\s*U|CARREFOUR|INTERMARCHÉ|INTERMARCHE|LIDL|ALDI|AUCHAN|E\.LECLERC|LECLERC)\b/i;
+ const ignored=/^(accueil|enseignes?|shopping|favoris|alertes|se connecter|voir le produit|produits en promotion|les produits disponibles|mis à jour.*|mis a jour.*|voir tout l univers|autres promotions.*|retour|la pub|lapub\.re|jusqu.{0,3}au\b|\d+\s+(produits?|enseignes?|magasins?))/i;
+ const dateRe=/jusqu.{0,3}au\s+\d{1,2}\s+[a-zéûîôàèùç]+\s+\d{4}/i;
+ const finish=(dateLine="")=>{
+  if(!block.length)return;
+  const b=block.slice(),date=parseCatalogDate(dateLine)||globalDate;
+  const storeLine=[...b].reverse().find(x=>chains.test(x))||"";
+  const sm=storeLine.match(/^(LEADER\s*PRICE|U\s*EXPRESS|SUPER\s*U|HYPER\s*U|CARREFOUR|INTERMARCHÉ|INTERMARCHE|LIDL|ALDI|AUCHAN|E\.LECLERC|LECLERC)\b\s*(.*)$/i);
+  const chain=sm?sm[1].replace(/\s+/g," ").toUpperCase():"";
+  const store=storeLine;
+  const useful=b.filter(x=>!ignored.test(x)&&!chains.test(x)&&!dateRe.test(x)&&!/^(\d+[,.]?\d*\s*(€|EUR|Rs|MUR)?|prix\s)/i.test(x));
+  const name=useful[0]||"";
+  if(!name){block=[];return;}
+  // A product title is commonly repeated around the retailer line; brand is the next distinct short line.
+  const titleKey=normalizeCatalogKey(name);
+  const afterTitle=useful.slice(1).filter(x=>normalizeCatalogKey(x)!==titleKey);
+  const brand=afterTitle.find(x=>x.length<=65&&!/\b(kg|g|ml|l|lavages?|doses?|tranches?|x\d+)\b/i.test(x)&&!/[€]|\d+[,.]\d{2}/.test(x))||"";
+  const quantityLine=b.find(x=>/\b\d+(?:[,.]\d+)?\s*(kg|g|ml|cl|l)\b/i.test(x))||"";
+  const q=quantityLine.match(/(\d+(?:[,.]\d+)?)\s*(kg|g|ml|cl|l)\b/i);
+  const price=parseCatalogPrice(b.join("\n"));
+  const explicitCurrency=/\bMUR\b|\bRs\.?\s*\d/i.test(b.join(" "))?"MUR":/€|\bEUR\b/i.test(b.join(" "))?"EUR":($("catalog-currency")?.value||"");
+  const row={name,brand,price,currency:explicitCurrency||"",chain,store,town:$("catalog-town").value.trim(),region:$("catalog-region").value.trim(),category:$("catalog-category").value.trim(),source:$("catalog-source").value.trim()||"Catalogue Internet",offerEnd:date,quantity:q?Number(q[1].replace(",",".")):null,unit:q?q[2].toLowerCase():"",rawBlock:b.join("\n"),key:normalizeCatalogKey(name+" "+brand)};
+  rows.push(row);block=[];
+ };
+ for(const line of lines){
+  if(/produits en promotion/i.test(line)){inProducts=true;continue;}
+  if(!inProducts)continue;
+  if(dateRe.test(line)){globalDate=parseCatalogDate(line)||globalDate;finish(line);continue;}
+  if(ignored.test(line))continue;
+  block.push(line);
+ }
+ if(block.length)finish("");
+ const seenRows=new Set();
+ return rows.filter(r=>{const k=[normalizeCatalogKey(r.name),normalizeCatalogKey(r.brand),r.quantity??"",r.unit,normalizeCatalogKey(r.store),r.price??"",r.currency,r.offerEnd].join("|");if(seenRows.has(k))return false;seenRows.add(k);return true;});
+}
+function renderCatalogPreview(){
+ const body=$("catalog-preview-body");body.innerHTML=parsedCatalogRows.map((r,i)=>`<tr><td><input type="checkbox" class="catalog-row-check" data-index="${i}" checked aria-label="Importer ${escapeHTML(r.name)}" style="width:auto"></td><td><strong>${escapeHTML(r.name)}</strong><div class="muted">${escapeHTML(r.category||"Catégorie non précisée")}</div></td><td>${escapeHTML(r.brand||"—")}</td><td>${escapeHTML([r.chain,r.store].filter(Boolean).join(" · ")||"—")}</td><td>${r.price===null?"Non indiqué":escapeHTML(r.price.toFixed(2)+" "+(r.currency==="MUR"?"Rs":"€"))}</td><td>${escapeHTML(r.offerEnd||"Non indiquée")}</td></tr>`).join("");
+ $("catalog-preview-panel").classList.toggle("hide",!parsedCatalogRows.length);
+ const dated=parsedCatalogRows.filter(r=>r.offerEnd).length,priced=parsedCatalogRows.filter(r=>r.price!==null).length;
+ $("catalog-summary").textContent=`${parsedCatalogRows.length} produit(s) détecté(s) · ${priced} avec prix · ${dated} avec date de fin. Vérifiez avant importation.`;
+ updateCatalogSelectionCount();
+}
+function updateCatalogSelectionCount(){const n=document.querySelectorAll(".catalog-row-check:checked").length;$("catalog-import-count").textContent=n+" sélectionné(s)";}
+
+
+function parseLapubMarkdown(raw, categoryOverride){
+ const source=String(raw||"");
+ const rows=[];
+ const offerPattern=/\[([\s\S]*?)\]\((https:\/\/lapub\.re\/offres\/[^)\s]+)\)/g;
+ const chainRe=/\b(LEADER\s*PRICE|U\s*EXPRESS)\b/i;
+ const dateRe=/Jusqu['’]?\s*au\s+(\d{1,2})\s+([a-zéûîôàèùç]+)\s+(\d{4})/i;
+ const monthMap={janvier:1,février:2,fevrier:2,mars:3,avril:4,mai:5,juin:6,juillet:7,août:8,aout:8,septembre:9,octobre:10,novembre:11,décembre:12,decembre:12};
+ const clean=x=>String(x||"").replace(/&amp;/g,"&").replace(/&#39;|&apos;/g,"'").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
+ const isoDate=m=>{if(!m)return "";const day=+m[1],month=monthMap[m[2].toLocaleLowerCase("fr")],year=+m[3];if(!month)return "";const d=new Date(Date.UTC(year,month-1,day));return d.getUTCFullYear()===year&&d.getUTCMonth()===month-1&&d.getUTCDate()===day?`${year}-${String(month).padStart(2,"0")}-${String(day).padStart(2,"0")}`:"";};
+ let match;
+ while((match=offerPattern.exec(source))){
+  const block=match[1],productUrl=match[2];
+  const imageMatch=block.match(/!\[Image\s+\d+\s*:\s*([^\]]+)\]\((https:\/\/[^)]+)\)/i);
+  const name=clean(imageMatch?.[1]||"");
+  if(!name)continue;
+  const priceMatch=block.match(/(\d{1,4})[,.](\d{2})\s*€/);
+  const price=priceMatch?Number(priceMatch[1]+"."+priceMatch[2]):null;
+  const headingIndex=block.indexOf("###");
+  let tail="";
+  if(headingIndex>=0){
+   const datePos=block.search(/Jusqu['’]?\s*au\s+\d{1,2}\s+[a-zéûîôàèùç]+\s+\d{4}/i);
+   const stopAt=priceMatch?priceMatch.index:(datePos>=0?datePos:block.length);
+   tail=clean(block.slice(headingIndex+3,stopAt));
+   if(tail.toLocaleLowerCase("fr").startsWith(name.toLocaleLowerCase("fr")))tail=clean(tail.slice(name.length));
+  }
+  const chainMatch=block.match(chainRe);
+  const chain=chainMatch?clean(chainMatch[1]).toUpperCase().replace(/\s+/g," "):"";
+  tail=clean(tail.replace(/\b(LEADER\s*PRICE|U\s*EXPRESS)\b/ig,"").replace(/\bCILAOS\b/ig,""));
+  let brand="";
+  if(tail.includes("·"))brand=clean(tail.split("·")[0]);
+  else if(tail && normalizeCatalogKey(tail)!==normalizeCatalogKey(name) && tail.length<=90)brand=tail;
+  if(normalizeCatalogKey(brand)===normalizeCatalogKey(chain)||/\b(voir le produit|jusqu|produits en promotion)\b/i.test(brand))brand="";
+  const dateMatch=block.match(dateRe);
+  const offerEnd=isoDate(dateMatch);
+  const rawText=clean(block.replace(/!\[Image[^\]]*\]\([^)]*\)/g,""));
+  rows.push({
+   name,brand,price,currency:price===null?"":"EUR",chain,store:chain+(chain?" CILAOS":""),
+   town:"Cilaos",region:"La Réunion",category:categoryOverride||"Charcuterie & Traiteur",source:"LAPUB.RE",
+   offerEnd,quantity:null,unit:"",imageUrl:imageMatch?.[2]||"",productUrl,rawBlock:rawText,
+   key:normalizeCatalogKey(name+" "+brand)
+  });
+ }
+ const seen=new Set();
+ return rows.filter(r=>{const k=[normalizeCatalogKey(r.name),normalizeCatalogKey(r.brand),r.chain,r.price,r.currency,r.offerEnd,r.productUrl].join("|");if(seen.has(k))return false;seen.add(k);return true;});
+}
+
+function runCatalogAnalysis(){
+ try{parsedCatalogRows=parseCatalogText($("catalog-text").value);renderCatalogPreview();$("catalog-status").innerHTML=parsedCatalogRows.length?notice(`${parsedCatalogRows.length} produit(s) détecté(s). Contrôlez les lignes avant importation.`):notice("Aucun produit détecté. Vérifiez que le texte copié contient les noms des produits et les lignes magasins / promotions.","warn");}
+ catch(err){$("catalog-status").innerHTML=notice("Erreur d'analyse : "+err.message,"error");}
+}
+$("catalog-parse").onclick=runCatalogAnalysis;
+async function fetchCatalogText(url,timeoutMs=30000){
+ if(location.protocol==="file:")throw new Error("LOCAL_FILE_ORIGIN");
+ let lastError;
+ for(let attempt=1;attempt<=2;attempt++){
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);
+  try{
+   const response=await fetch(url,{method:"GET",mode:"cors",credentials:"omit",redirect:"follow",cache:"no-store",headers:{"Accept":"text/plain"},signal:controller.signal});
+   if(!response.ok)throw new Error("HTTP "+response.status);
+   const text=await response.text();
+   if(!text||text.trim().length<100)throw new Error("Réponse vide ou trop courte");
+   return text;
+  }catch(err){
+   lastError=err;
+   if(err.name==="AbortError")throw new Error("Délai dépassé après 30 secondes. Vérifiez la connexion puis réessayez.");
+   if(attempt===1 && (err instanceof TypeError||/network|fetch|load failed/i.test(err.message||""))){await new Promise(r=>setTimeout(r,900));continue;}
+   throw err;
+  }finally{clearTimeout(timer);}
+ }
+ throw lastError||new Error("Échec de récupération");
+}
+function catalogFetchHelp(selected,errors){
+ const links=selected.map(x=>`<a href="https://lapub.re/cilaos/promos/${encodeURIComponent(x.value)}" target="_blank" rel="noopener noreferrer">${escapeHTML(x.label)}</a>`).join(" · ");
+ const local=location.protocol==="file:";
+ return `<div class="notice warn"><strong>Récupération Internet impossible.</strong><p>${local?"ScanPrix est ouvert comme fichier local (file://). Sur téléphone, le navigateur bloque les appels Internet dans ce contexte. Pour la récupération automatique, il faut ouvrir ScanPrix depuis une adresse HTTPS (hébergement web).":"Le serveur de lecture n’a pas répondu. Vérifiez la connexion et réessayez. Si le problème persiste, le serveur peut refuser la requête (CORS ou indisponibilité)."}</p><p>Solution de secours : ouvrez un rayon, copiez son contenu, puis collez-le dans « Texte copié du catalogue » et cliquez sur « Analyser le catalogue ».</p><p>Rayons sélectionnés : ${links}</p><p class="muted">${escapeHTML(errors.join(" ; "))}</p></div>`;
+}
+const CATALOG_BASE_URL="https://r.jina.ai/https://lapub.re/cilaos/promos/";
+const CATALOG_CATEGORIES=[...document.querySelectorAll(".catalog-category-check")];
+$("catalog-auto-read").onclick=()=>{$("catalog-category-modal").classList.remove("hide");$("catalog-category-progress").textContent="";};
+$("catalog-custom-enabled").onchange=e=>{$("catalog-custom-category").disabled=!e.target.checked;if(e.target.checked)$("catalog-custom-category").focus();};
+$("catalog-category-none").onclick=()=>{CATALOG_CATEGORIES.forEach(x=>x.checked=false);$("catalog-custom-enabled").checked=false;$("catalog-custom-category").disabled=true;};
+$("catalog-category-cancel").onclick=()=>$("catalog-category-modal").classList.add("hide");
+$("catalog-category-run").onclick=async()=>{
+ const selected=CATALOG_CATEGORIES.filter(x=>x.checked).map(x=>({value:x.value,label:x.dataset.label||x.value}));
+ if($("catalog-custom-enabled").checked){
+  const raw=$("catalog-custom-category").value.trim();
+  const slug=raw.replace(/^https?:\/\/lapub\.re\/cilaos\/promos\//i,"").replace(/^\/+|\/+$/g,"").toLocaleLowerCase("fr");
+  if(!slug){$("catalog-category-progress").textContent="Saisissez l’élément de la catégorie personnalisée.";return;}
+  if(!/^[a-z0-9-]+$/.test(slug)){$("catalog-category-progress").textContent="Format invalide : utilisez lettres sans accent, chiffres et tirets.";return;}
+  if(!selected.some(x=>x.value===slug))selected.push({value:slug,label:raw});
+ }
+ if(!selected.length){$("catalog-category-progress").textContent="Cochez au moins un rayon ou saisissez une catégorie personnalisée.";return;}
+ const runBtn=$("catalog-category-run");runBtn.disabled=true;
+ const allRows=[];const rawPages=[];const errors=[];
+ try{
+  for(let i=0;i<selected.length;i++){
+   const item=selected[i];$("catalog-category-progress").textContent=`Lecture ${i+1}/${selected.length} : ${item.value}…`;
+   try{
+    const extracted=await fetchCatalogText(CATALOG_BASE_URL+encodeURIComponent(item.value));
+    rawPages.push(extracted);
+    const rows=parseLapubMarkdown(extracted,item.label);
+    allRows.push(...rows);
+    if(!rows.length)errors.push(item.value+" : aucune offre reconnue");
+   }catch(err){errors.push(item.value+" : "+(err.message||err));}
+  }
+  $("catalog-text").value=rawPages.join("\\n\\n");
+  $("catalog-source").value="LAPUB.RE";$("catalog-town").value="Cilaos";$("catalog-region").value="La Réunion";
+  $("catalog-category").value=selected.length===1?selected[0].label:"Multi-rayons LAPUB.RE";
+  const seen=new Set();
+  parsedCatalogRows=allRows.filter(r=>{const k=[normalizeCatalogKey(r.name),normalizeCatalogKey(r.brand),r.chain,r.price,r.currency,r.offerEnd,r.productUrl].join("|");if(seen.has(k))return false;seen.add(k);return true;});
+  renderCatalogPreview();
+  const msg=`${parsedCatalogRows.length} offre(s) détectée(s) sur ${selected.length} rayon(s) sélectionné(s).`;
+  if(!rawPages.length){
+   $("catalog-status").innerHTML=catalogFetchHelp(selected,errors);
+   $("catalog-category-progress").textContent="Aucune page n’a pu être récupérée. Vous pouvez réessayer ou utiliser la copie manuelle.";
+  }else{
+   $("catalog-category-modal").classList.add("hide");
+   $("catalog-status").innerHTML=notice(msg+(errors.length?" Certains rayons n'ont pas été lus : "+errors.join(" ; "):" Vérifiez les offres avant importation."),errors.length?"warn":"success");
+  }
+ }catch(err){
+  $("catalog-category-progress").textContent="Erreur pendant la relecture : "+(err.message||err);
+ }finally{runBtn.disabled=false;}
+};
+$("catalog-clear").onclick=()=>{$("catalog-text").value="";parsedCatalogRows=[];$("catalog-preview-panel").classList.add("hide");$("catalog-status").innerHTML="";$("catalog-import-result").innerHTML="";};
+$("catalog-preview-body").addEventListener("change",updateCatalogSelectionCount);
+$("catalog-select-all").onclick=()=>{document.querySelectorAll(".catalog-row-check").forEach(x=>x.checked=true);updateCatalogSelectionCount();};
+$("catalog-select-none").onclick=()=>{document.querySelectorAll(".catalog-row-check").forEach(x=>x.checked=false);updateCatalogSelectionCount();};
+$("catalog-import-selected").onclick=async()=>{
+ const indexes=[...document.querySelectorAll(".catalog-row-check:checked")].map(x=>Number(x.dataset.index));if(!indexes.length){alert("Sélectionnez au moins un produit.");return;}
+ const button=$("catalog-import-selected");button.disabled=true;button.textContent="Importation…";let created=0,updated=0,unchanged=0,failed=[];
+ try{
+  const existing=await all("products");
+  for(const index of indexes){const r=parsedCatalogRows[index];if(!r)continue;
+   const offer={source:r.source,category:r.category,chain:r.chain,store:r.store,town:r.town,region:r.region,price:r.price,currency:r.currency,offerEnd:r.offerEnd,imageUrl:r.imageUrl||"",productUrl:r.productUrl||"",importedAt:new Date().toISOString(),rawText:r.rawBlock};
+   const match=existing.find(p=>r.barcode&&p.barcode&&normalizeBarcode(p.barcode)===normalizeBarcode(r.barcode))||existing.find(p=>normalizeCatalogKey(p.name)===normalizeCatalogKey(r.name)&&normalizeCatalogKey(p.brand||"")===normalizeCatalogKey(r.brand||"")&&(p.quantity??null)===(r.quantity??null)&&String(p.unit||"").toLowerCase()===String(r.unit||"").toLowerCase());
+   try{
+    if(match){const offers=Array.isArray(match.catalogOffers)?match.catalogOffers.slice():[];const signature=o=>[normalizeCatalogKey(o.source),normalizeCatalogKey(o.chain),normalizeCatalogKey(o.store),o.price,o.currency,o.offerEnd].join("|");if(!offers.some(o=>signature(o)===signature(offer))){offers.push(offer);const updatedProduct={...match,catalogOffers:offers,updatedAt:new Date().toISOString()};
+      // Keep the current offer fields synchronized with the latest dated offer; never replace known fields with blanks.
+      const newer=!match.offerEnd||!offer.offerEnd||offer.offerEnd>=match.offerEnd;
+      if(newer){if(r.price!==null)updatedProduct.offerPrice=r.price;if(r.currency)updatedProduct.offerCurrency=r.currency;if(r.offerEnd)updatedProduct.offerEnd=r.offerEnd;if(r.category)updatedProduct.category=r.category;if(r.quantity!==null&&r.quantity!==undefined)updatedProduct.quantity=r.quantity;if(r.unit)updatedProduct.unit=r.unit;}
+      await put("products",updatedProduct);Object.assign(match,updatedProduct);updated++;}else{unchanged++;}}
+    else{const newProduct={id:uid(),barcode:"",name:r.name,brand:r.brand,category:r.category,quantity:r.quantity??null,unit:r.unit||"",description:"",offerPrice:r.price,offerCurrency:r.currency,offerStart:"",offerEnd:r.offerEnd,sourceNotes:`Source : ${r.source}${r.store?" · "+r.store:""}${r.category?" · "+r.category:""}`,catalogOffers:[offer],createdAt:new Date().toISOString()};await addProduct(newProduct);existing.push(newProduct);created++;}
+   }catch(err){failed.push(r.name+" : "+err.message);}
+  }
+  await refreshAll();$("catalog-import-result").innerHTML=notice(`${created} nouveau(x) produit(s) créé(s), ${updated} offre(s) ajoutée(s), ${unchanged} offre(s) déjà présente(s) ignorée(s)${failed.length?`, ${failed.length} échec(s)`:""}. Les prix et magasins du catalogue restent enregistrés comme offres source.`,failed.length?"warn":"");
+  if(failed.length)$("catalog-import-result").innerHTML+=`<ul>${failed.map(x=>`<li>${escapeHTML(x)}</li>`).join("")}</ul>`;
+ }catch(err){$("catalog-import-result").innerHTML=notice("Importation interrompue : "+err.message,"error");}
+ finally{button.disabled=false;button.textContent="Importer les produits sélectionnés";}
+};
+
+async function diagnostics(){const secure=window.isSecureContext;const camera=("BarcodeDetector" in window);$("diagnostic-status").innerHTML=[["Navigateur",navigator.userAgent],["Ouverture de l’application",location.protocol==="https:"?"HTTPS":location.protocol==="http:"?"HTTP":"Fichier local (file://) — risque de blocage réseau"],["Contexte sécurisé",secure?"Oui":"Non — caméra généralement bloquée"],["BarcodeDetector",camera?"Disponible (natif)":"Absent — lecteur ZXing de secours intégré (chargé en ligne)"],["IndexedDB",!!window.indexedDB?"Disponible":"Indisponible"],["Stockage estimé",navigator.storage?.estimate?Math.round((await navigator.storage.estimate()).usage||0)/1024+" Ko":"Non communiqué"],["Connexion",navigator.onLine?"En ligne":"Hors ligne"],["Base locale",db?"Ouverte":"Fermée"],["Test code 6001298899714",validCheckDigit("6001298899714")?"EAN-13 valide":"Échec de validation"]].map(([a,b])=>`<div class="testrow"><span>${escapeHTML(a)}</span><strong>${escapeHTML(b)}</strong></div>`).join("");}
+
+window.addEventListener("online",()=>{$("connection").textContent="Connecté à Internet";diagnostics()});window.addEventListener("offline",()=>{$("connection").textContent="Hors ligne — données locales disponibles";diagnostics()});
+(async()=>{try{if(!window.indexedDB)throw Error("IndexedDB n'est pas disponible.");db=await openDB();$("connection").textContent=navigator.onLine?"Base locale prête · En ligne":"Base locale prête · Hors ligne";await refreshAll();await diagnostics();}catch(err){$("connection").textContent="Erreur de base de données";document.querySelector("main").prepend(Object.assign(document.createElement("div"),{className:"notice error",textContent:"Impossible d'ouvrir IndexedDB : "+err.message}));}})();
+</script>
+</body>
+</html>
